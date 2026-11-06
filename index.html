@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nettovarallisuuslaskuri – laske nettovarallisuutesi ilmaiseksi</title>
+<meta name="description" content="Laske nettovarallisuutesi ilmaiseksi ja anonyymisti. Nettovarallisuuslaskuri huomioi asunnot, sijoitukset, metsän, lainat ja kotitalouden yhteisen omaisuuden.">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<link rel="canonical" href="https://nettovarallisuus.fi/">
+<meta name="theme-color" content="#1E3B2F">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:site_name" content="Nettovarallisuus.fi">
+<meta property="og:url" content="https://nettovarallisuus.fi/">
+<meta property="og:title" content="Nettovarallisuuslaskuri – laske nettovarallisuutesi ilmaiseksi">
+<meta property="og:description" content="Laske nettovarallisuutesi ilmaiseksi ja anonyymisti: varat miinus velat, omistusosuudet ja kotitalouden yhteinen omaisuus huomioiden.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nettovarallisuuslaskuri – laske nettovarallisuutesi ilmaiseksi">
+<meta name="twitter:description" content="Laske nettovarallisuutesi ilmaiseksi ja anonyymisti: varat miinus velat, omistusosuudet ja kotitalouden yhteinen omaisuus huomioiden.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:image" content="https://nettovarallisuus.fi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nettovarallisuuslaskuri – laske nettovarallisuutesi ilmaiseksi ja anonyymisti">
+<meta name="twitter:image" content="https://nettovarallisuus.fi/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Nettovarallisuuslaskuri",
+      "alternateName": "Nettovarallisuus.fi",
+      "url": "https://nettovarallisuus.fi/",
+      "description": "Ilmainen ja anonyymi nettovarallisuuslaskuri Suomen markkinoille. Laske varat, velat ja nettovarallisuus henkilökohtaisesti ja kotitalouden tasolla.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Kaikki (selainpohjainen)",
+      "inLanguage": "fi",
+      "isAccessibleForFree": true,
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "fi",
+      "mainEntity": [
+        {"@type": "Question", "name": "Mikä on nettovarallisuus?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Nettovarallisuus on varojen ja velkojen erotus: kaikki omaisuus markkina-arvoon arvostettuna miinus jäljellä olevat velat. Se kertoo, paljonko varallisuutta jäisi, jos kaikki velat maksettaisiin pois."}},
+        {"@type": "Question", "name": "Miten nettovarallisuus lasketaan?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Nettovarallisuus = varat − velat. Varat arvostetaan markkina-arvoon omistusosuuden mukaan, ja veloista huomioidaan jäljellä oleva pääoma vastuuosuuden mukaan – ei alkuperäistä lainasummaa."}},
+        {"@type": "Question", "name": "Tallentaako nettovarallisuuslaskuri tietojani?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Ei. Laskuri toimii anonyymisti: tietoja ei kerätä eikä lähetetä millekään palvelimelle. Luvut säilyvät vain omalla laitteellasi selaimen muistissa."}},
+        {"@type": "Question", "name": "Onko nettovarallisuus sama kuin verotettava varallisuus?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Ei. Nettovarallisuus kuvaa varojen ja velkojen erotusta. Laskuri ei vähennä laskennallisia luovutusvoittoveroja, joita omaisuuden myynnistä voisi syntyä."}}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F3EF; --surface:#FFFFFF; --surface-2:#FAF9F6; --ink:#15171B; --ink-2:#4A4F58; --ink-3:#7B8089;
+  --line:#E7E4DD; --line-2:#D9D5CC; --brand:#13304F; --brand-2:#1E4673; --brand-soft:#E8EEF5;
+  --pos:#1D7A4E; --neg:#A93A2B; --warn-bg:#FFF6E3; --warn-ink:#7A5200;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300;
+  --radius:16px; --radius-sm:10px; --shadow:0 1px 2px rgba(20,22,26,.04),0 4px 16px rgba(20,22,26,.05);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.num,.tab-num{font-variant-numeric:tabular-nums}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--brand-2)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* Header */
+header.top{position:sticky;top:0;z-index:30;background:rgba(244,243,239,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.top-row{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em;font-size:17px;white-space:nowrap}
+.brand-mark{width:30px;height:30px;border-radius:9px;background:var(--brand);display:grid;place-items:center}
+.brand small{display:block;font-weight:500;font-size:12px;color:var(--ink-3);letter-spacing:0}
+.spacer{flex:1}
+.seg{display:inline-flex;background:#E9E7E1;border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;padding:7px 14px;border-radius:999px;font-weight:600;font-size:13.5px;color:var(--ink-2);cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin:0 -4px;padding:0 4px 10px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{text-decoration:none;color:var(--ink-2);font-weight:600;font-size:14px;padding:8px 14px;border-radius:999px;white-space:nowrap}
+.tabs a:hover{background:#ECEAE4}
+.tabs a[aria-current="page"]{background:var(--brand);color:#fff}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line-2);background:var(--surface);padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s}
+.btn:hover{background:var(--surface-2);border-color:#C9C4B9}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn.primary:hover{background:var(--brand-2)}
+.btn.ghost{border-color:transparent;background:transparent}
+.btn.ghost:hover{background:#ECEAE4}
+.btn.danger{color:var(--neg);border-color:#E8C9C3}
+.btn.danger:hover{background:#FBF1EF}
+.btn.sm{padding:6px 12px;font-size:13px}
+.icon-btn{border:0;background:transparent;width:34px;height:34px;border-radius:10px;display:inline-grid;place-items:center;cursor:pointer;color:var(--ink-3)}
+.icon-btn:hover{background:#EFEDE7;color:var(--ink)}
+.icon-btn.del:hover{color:var(--neg);background:#FBF1EF}
+
+/* Layout */
+main{padding:24px 0 56px}
+.view{display:none}
+.view.active{display:block}
+.grid{display:grid;gap:18px}
+.g-hero{grid-template-columns:1.35fr 1fr}
+.g-2{grid-template-columns:1fr 1fr}
+.g-kpi{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.g-hero,.g-2{grid-template-columns:1fr}.g-kpi{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+.card h2,.card h3{margin:0;font-size:16px;font-weight:700;letter-spacing:-.005em}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.card-head p{margin:2px 0 0;color:var(--ink-3);font-size:13px}
+.muted{color:var(--ink-3)}
+.small{font-size:13px}
+.page-title{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:4px 0 20px}
+.brand-h1{margin:0;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:1.25}
+.page-title h1,.page-title h2{margin:0;font-size:26px;letter-spacing:-.02em;font-weight:800}
+.page-title p{margin:4px 0 0;color:var(--ink-2);max-width:640px}
+
+/* Hero */
+.hero{background:linear-gradient(160deg,#13304F 0%,#0F263F 100%);color:#fff;border:0;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%)}
+.hero .label{font-size:13.5px;font-weight:600;color:rgba(255,255,255,.72);letter-spacing:.01em}
+.hero .big{font-size:clamp(38px,6vw,58px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:8px 0 10px}
+.hero .delta{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;background:rgba(255,255,255,.1);padding:5px 11px;border-radius:999px}
+.hero .meter{margin-top:26px}
+.meter-bar{height:10px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden;display:flex}
+.meter-bar span{display:block;height:100%}
+.meter-legend{display:flex;justify-content:space-between;font-size:13px;margin-top:8px;color:rgba(255,255,255,.8);gap:12px;flex-wrap:wrap}
+.meter-legend b{color:#fff}
+.side-stats{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+.kpi .k-label{font-size:13px;color:var(--ink-3);font-weight:600}
+.kpi .k-val{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-top:4px}
+.kpi .k-sub{font-size:12.5px;color:var(--ink-3);margin-top:2px}
+
+/* Lists */
+.legend-table{width:100%;border-collapse:collapse;font-size:14px}
+.legend-table td{padding:7px 0;border-bottom:1px solid var(--line)}
+.legend-table tr:last-child td{border-bottom:0}
+.legend-table td.r{text-align:right;white-space:nowrap}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:9px;vertical-align:0}
+.donut-wrap{display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:center}
+@media (max-width:520px){.donut-wrap{grid-template-columns:1fr;justify-items:center}.donut-wrap table{justify-self:stretch}}
+.top-item{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.top-item:last-child{border-bottom:0}
+.top-item .bar{grid-column:1/-1;height:6px;border-radius:999px;background:#EFEDE7;overflow:hidden;margin-top:6px}
+.top-item .bar span{display:block;height:100%;border-radius:999px}
+.top-item .nm{font-weight:600}
+.top-item .sb{font-size:12.5px;color:var(--ink-3)}
+
+/* Category cards */
+.cat-card{padding:0;overflow:hidden}
+.cat-head{display:flex;align-items:center;gap:14px;padding:18px 20px}
+.cat-ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none}
+.cat-head .t{flex:1;min-width:0}
+.cat-head .t h3{font-size:15.5px}
+.cat-head .t p{margin:1px 0 0;font-size:12.5px;color:var(--ink-3)}
+.cat-total{text-align:right;font-weight:800;font-size:17px;white-space:nowrap}
+.cat-total small{display:block;font-weight:500;font-size:12px;color:var(--ink-3)}
+.help{margin:0 20px 14px;padding:12px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius-sm);font-size:13.5px;color:var(--ink-2);display:none}
+.help.open{display:block}
+.items{border-top:1px solid var(--line)}
+.item{border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item-row{display:flex;align-items:center;gap:12px;padding:13px 20px}
+.item-main{flex:1;min-width:0}
+.item-main .nm{font-weight:650;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item-main .meta{font-size:12.5px;color:var(--ink-3);display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:2px}
+.badge{display:inline-flex;align-items:center;padding:1px 8px;border-radius:999px;font-size:11.5px;font-weight:700;letter-spacing:.01em;background:#EFEDE7;color:var(--ink-2)}
+.badge.oma{background:#E6EFFA;color:#1C4F8C}
+.badge.puoliso{background:#F7EAF0;color:#8A2F55}
+.badge.yhteinen{background:#E6F4EE;color:#17603F}
+.badge.link{background:#FFF1E2;color:#8A4A12}
+.item-val{text-align:right;white-space:nowrap}
+.item-val b{font-size:15.5px}
+.item-val small{display:block;font-size:12px;color:var(--ink-3)}
+.item-actions{display:flex;gap:2px}
+.breakdown{display:none;margin:0 20px 14px;padding:12px 14px;border-radius:var(--radius-sm);background:var(--surface-2);border:1px dashed var(--line-2);font-size:13.5px}
+.breakdown.open{display:block}
+.bd-line{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+.bd-line.total{border-top:1px solid var(--line-2);margin-top:6px;padding-top:8px;font-weight:700}
+.bd-line span:last-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+.empty-cat{padding:14px 20px;color:var(--ink-3);font-size:13.5px;border-top:1px solid var(--line)}
+.cat-list{display:grid;gap:14px}
+
+.linkish{border:0;background:none;padding:0;color:var(--brand-2);font-weight:600;font-size:12.5px;cursor:pointer}
+.linkish:hover{text-decoration:underline}
+.erows{border-top:1px solid var(--line)}
+.erow{border-bottom:1px solid var(--line)}
+.erow:last-child{border-bottom:0}
+.erow.filled{background:linear-gradient(90deg,rgba(30,70,115,.035),transparent 60%)}
+.erow-main{display:grid;grid-template-columns:minmax(170px,230px) 1fr 34px;gap:14px;align-items:center;padding:12px 20px}
+.erow-title > b{display:block;font-size:14.5px;font-weight:650}
+.erow-out{display:block;font-size:12.5px;color:var(--ink-3);margin-top:2px;line-height:1.4}
+.erow-out b{color:var(--ink);font-variant-numeric:tabular-nums}
+.erow-fields{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.ef label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);margin-bottom:4px}
+.ef .input{padding:8px 10px;font-size:14.5px;border-radius:9px}
+.ef .input-suffix .input{padding-right:28px}
+.ef .input-suffix span{right:10px;font-size:13px}
+.f-value,.f-loanPrincipal,.f-land,.f-timber{width:158px}
+.f-owner{width:118px} .f-mode{width:168px}
+.f-own{width:100px}.f-sp{width:118px}
+.erow[data-owner="oma"] .f-sp,.erow[data-owner="puoliso"] .f-own{display:none}
+.erow[data-fmode="split"] .f-total,.erow[data-fmode="total"] .f-split{display:none}
+.erow-tg svg{transition:transform .15s}
+.erow-tg[aria-expanded="true"] svg{transform:rotate(180deg)}
+.erow-detail{display:none;margin:0 20px 14px;padding:12px 14px;border-radius:var(--radius-sm);background:var(--surface-2);border:1px dashed var(--line-2);font-size:13.5px}
+.erow-detail.open{display:block}
+.erow-notes{margin-top:10px;display:grid;gap:6px;justify-items:start}
+.erow-notes textarea{font-size:14px}
+@media (max-width:860px){
+  .erow-main{grid-template-columns:1fr 34px;gap:10px}
+  .erow-fields{grid-column:1/-1;grid-row:2}
+}
+@media (max-width:640px){
+  .erow-main{padding:12px 16px}
+  .erow-detail{margin-left:16px;margin-right:16px}
+  .erow-fields .ef{flex:1 1 calc(50% - 5px);width:auto;min-width:0}
+}
+
+/* Tables */
+.tbl-wrap{overflow-x:auto;margin:0 -22px;padding:0 22px}
+table.data{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+table.data th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:700;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line-2)}
+table.data td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.data .r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+table.data tfoot td{font-weight:800;border-bottom:0;border-top:1px solid var(--line-2)}
+.pos{color:var(--pos)} .neg{color:var(--neg)}
+
+/* Charts */
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;overflow:visible}
+.tooltip{position:absolute;pointer-events:none;background:var(--ink);color:#fff;border-radius:10px;padding:9px 12px;font-size:12.5px;line-height:1.45;box-shadow:0 6px 20px rgba(0,0,0,.18);white-space:nowrap;opacity:0;transition:opacity .1s;z-index:5}
+.tooltip .tt-row{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.tooltip .tt-row b{font-variant-numeric:tabular-nums;margin-left:14px}
+.chart-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin-top:10px}
+.chart-legend span{display:inline-flex;align-items:center;gap:7px}
+.chart-legend i{display:inline-block;width:16px;height:2px;border-radius:2px}
+.chart .chart-legend svg{width:12px;display:inline-block}
+.chart-empty{display:grid;place-items:center;text-align:center;min-height:200px;border:1px dashed var(--line-2);border-radius:var(--radius-sm);color:var(--ink-3);padding:24px;font-size:14px}
+
+/* Banner / notices */
+.notice{display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border-radius:var(--radius-sm);font-size:13.5px;margin-bottom:18px;border:1px solid}
+.notice.info{background:var(--brand-soft);border-color:#CFDCEB;color:#1B3A5E}
+.notice.warn{background:var(--warn-bg);border-color:#F0DDB0;color:var(--warn-ink)}
+.notice .grow{flex:1}
+.privacy{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;font-size:13.5px;color:var(--ink-2)}
+.privacy b{color:var(--ink)}
+.privacy .shield{flex:none;width:36px;height:36px;border-radius:11px;background:#E6F4EE;display:grid;place-items:center}
+
+/* Welcome */
+.welcome{text-align:center;padding:44px 22px}
+.welcome h2{font-size:22px;letter-spacing:-.01em;margin-bottom:8px}
+.welcome p{color:var(--ink-2);max-width:520px;margin:0 auto 20px}
+.welcome .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* Modal */
+.modal-back{position:fixed;inset:0;background:rgba(15,20,28,.42);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto}
+.modal-back.open{display:flex}
+.modal{background:var(--surface);border-radius:20px;width:100%;max-width:620px;box-shadow:0 20px 60px rgba(0,0,0,.25);animation:pop .16s ease-out}
+.modal.narrow{max-width:440px}
+@keyframes pop{from{transform:translateY(8px);opacity:.6}to{transform:none;opacity:1}}
+.modal-h{display:flex;align-items:center;gap:12px;padding:20px 22px 6px}
+.modal-h h2{margin:0;font-size:18px;flex:1;letter-spacing:-.01em}
+.modal-b{padding:10px 22px 4px}
+.modal-f{display:flex;gap:10px;justify-content:flex-end;padding:16px 22px 20px;flex-wrap:wrap}
+.field{margin-bottom:14px}
+.field label,.field .lbl{display:block;font-weight:600;font-size:13.5px;margin-bottom:6px}
+.field .hint{font-size:12.5px;color:var(--ink-3);margin-top:5px}
+.input,select.input,textarea.input{width:100%;border:1px solid var(--line-2);border-radius:11px;padding:10px 12px;background:#fff;font-size:15px;outline:none;transition:border-color .15s,box-shadow .15s}
+.input:focus{border-color:var(--brand-2);box-shadow:0 0 0 3px rgba(30,70,115,.14)}
+.input.err{border-color:var(--neg);box-shadow:0 0 0 3px rgba(169,58,43,.1)}
+.input-suffix{position:relative}
+.input-suffix .input{padding-right:36px}
+.input-suffix span{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-weight:600;pointer-events:none}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+.radio-seg{display:flex;gap:6px;flex-wrap:wrap}
+.radio-seg label{flex:1;min-width:110px;margin:0;cursor:pointer}
+.radio-seg input{position:absolute;opacity:0;pointer-events:none}
+.radio-seg span{display:block;text-align:center;border:1px solid var(--line-2);border-radius:11px;padding:9px 10px;font-weight:600;font-size:14px;color:var(--ink-2)}
+.radio-seg input:checked+span{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+.radio-seg input:focus-visible+span{box-shadow:0 0 0 3px rgba(30,70,115,.2)}
+.sub-sec{border-top:1px solid var(--line);margin:6px 0 14px;padding-top:14px}
+.sub-sec h4{margin:0 0 10px;font-size:14px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin-bottom:10px;cursor:pointer}
+.check input{margin-top:3px;width:16px;height:16px;accent-color:var(--brand)}
+.preview{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px}
+.preview h5{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}
+.err-msg{color:var(--neg);font-size:13px;margin-top:6px;font-weight:600}
+details.more summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--brand-2);padding:4px 0;list-style:none}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"+ "}
+details.more[open] summary::before{content:"– "}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:11px 18px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:all .2s;z-index:200;pointer-events:none;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Misc */
+.export-grid{display:grid;gap:10px}
+.export-opt{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;background:#fff;text-align:left;width:100%}
+.export-opt:hover{border-color:var(--line-2);background:var(--surface-2)}
+.export-opt .ext{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:12px;flex:none}
+.export-opt b{display:block}
+.export-opt small{color:var(--ink-3)}
+.test-row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.test-row:last-child{border-bottom:0}
+.ok-tag{font-weight:700;font-size:12px;padding:2px 9px;border-radius:999px}
+.ok-tag.ok{background:#E6F4EE;color:#17603F}
+.ok-tag.fail{background:#FBEAE7;color:#8E2B1E}
+.help-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.help-grid{grid-template-columns:1fr}}
+.help-grid h4{margin:0 0 4px;font-size:14px}
+.help-grid p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.prose p{margin:0 0 10px;color:var(--ink-2);font-size:14px}
+.prose ul{margin:0 0 10px;padding-left:20px;color:var(--ink-2);font-size:14px}
+.prose li{margin-bottom:4px}
+.foot{margin-top:28px;color:var(--ink-3);font-size:12.5px;text-align:center}
+.hide-sm{}
+@media (max-width:640px){
+  .wrap{padding:0 14px}
+  .hide-sm{display:none}
+  .top-row{height:58px;gap:10px}
+  .brand small{display:none}
+  .card{padding:18px}
+  .tbl-wrap{margin:0 -18px;padding:0 18px}
+  .item-row{padding:12px 16px}
+  .cat-head{padding:16px}
+  .help,.breakdown{margin-left:16px;margin-right:16px}
+  .seg button{padding:7px 11px;font-size:13px}
+}
+@media (max-width:440px){.brand > div:last-child{display:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+#report-root{position:fixed;left:-12000px;top:0;width:794px;background:#fff}
+.rp{width:794px;padding:40px 48px;background:#fff;color:#15171B;font-family:Manrope,system-ui,sans-serif;font-size:12px}
+.rp h1{font-size:22px;margin:0 0 2px;letter-spacing:-.01em}
+.rp h2{font-size:14px;margin:0 0 10px}
+.rp table{width:100%;border-collapse:collapse}
+.rp th{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:#7B8089;text-align:left;padding:6px;border-bottom:1px solid #D9D5CC}
+.rp td{padding:6px;border-bottom:1px solid #EEEBE5}
+.rp .r{text-align:right;white-space:nowrap}
+.rp .sumbox{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.rp .sumbox div{border:1px solid #E7E4DD;border-radius:10px;padding:10px 12px}
+.rp .sumbox span{display:block;color:#7B8089;font-size:10.5px;font-weight:600}
+.rp .sumbox b{font-size:17px}
+
+/* ===== Pastelli-ilme ===== */
+a.btn{text-decoration:none;color:var(--ink)}
+a.btn.primary{color:#fff}
+:root{
+  --bg:#FBF8F3; --surface:#FFFFFF; --surface-2:#FBF9F5; --ink:#17201B; --ink-2:#3C4540; --ink-3:#5C646C;
+  --line:#ECE5D9; --line-2:#DCD3C3; --brand:#1E3B2F; --brand-2:#2B5342; --brand-soft:#E2F3E8;
+  --mint:#DDF3E5; --mint-2:#BDE5CC; --mint-ink:#1D5A3B;
+  --butter:#FFF2C6; --butter-2:#F6DE8D; --butter-ink:#5C4500;
+  --blush:#FCE3EA; --blush-2:#F4BFCF; --blush-ink:#7E2346;
+  --sky:#E3EEFB; --lilac:#EFE7FB;
+  --pos:#1D6E47; --neg:#A3304E;
+  --radius:20px; --shadow:0 1px 2px rgba(23,32,27,.04),0 8px 24px rgba(23,32,27,.05);
+}
+body{background:
+  radial-gradient(900px 520px at -8% -10%, rgba(189,229,204,.55), transparent 60%),
+  radial-gradient(760px 480px at 108% -6%, rgba(244,191,207,.45), transparent 60%),
+  radial-gradient(900px 600px at 50% 115%, rgba(246,222,141,.35), transparent 60%),
+  var(--bg); background-attachment:fixed}
+header.top{background:rgba(251,248,243,.82)}
+.brand-mark{background:linear-gradient(135deg,#BDE5CC,#F6DE8D 60%,#F4BFCF);}
+.brand-mark svg{stroke:#17201B}
+.seg{background:#EFE8DB}
+.tabs a:hover{background:var(--mint)}
+.tabs a[aria-current="page"]{background:var(--brand);color:#fff}
+.btn{border-color:var(--line-2)}
+.btn:hover{background:var(--mint);border-color:var(--mint-2)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn.primary:hover{background:var(--brand-2)}
+.btn.ghost:hover{background:var(--mint)}
+.btn.danger{color:var(--neg);border-color:var(--blush-2);background:#fff}
+.btn.danger:hover{background:var(--blush)}
+.icon-btn:hover{background:var(--mint)}
+.icon-btn.del:hover{background:var(--blush)}
+.card{border-color:rgba(220,211,195,.7)}
+/* Hero */
+.hero{background:linear-gradient(135deg,#D3F0DE 0%,#E6F5D8 50%,#FFF0BF 100%);color:var(--ink);border:1px solid rgba(29,90,59,.08)}
+.hero::after{right:-70px;top:-90px;width:260px;height:260px;background:radial-gradient(circle,rgba(244,191,207,.75),rgba(244,191,207,0) 70%)}
+.hero::before{content:"";position:absolute;left:-60px;bottom:-110px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.7),rgba(255,255,255,0) 70%)}
+.hero > *{position:relative;z-index:1}
+.hero .label{color:var(--ink-2)}
+.hero .big{color:var(--ink)}
+.hero .delta{background:rgba(255,255,255,.72);color:var(--ink)}
+.meter-bar{background:rgba(23,32,27,.08);height:12px}
+.meter-legend{color:var(--ink-2)}
+.meter-legend b{color:var(--ink)}
+.meter-legend .k{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+/* Pastellikortit */
+.kpi.t-mint{background:var(--mint);border-color:var(--mint-2)}
+.kpi.t-butter{background:var(--butter);border-color:var(--butter-2)}
+.kpi.t-blush{background:var(--blush);border-color:var(--blush-2)}
+.kpi.t-sky{background:var(--sky);border-color:#C9DBF3}
+.kpi .k-label{color:var(--ink-2)}
+.kpi .k-sub{color:var(--ink-2);opacity:.85}
+.kpi .k-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}
+/* Luokat ja rivit */
+.cat-head{background:linear-gradient(90deg,var(--tint,#F3EFE7) 0%,rgba(255,255,255,0) 75%)}
+.cat-ico{box-shadow:inset 0 0 0 1px rgba(23,32,27,.06)}
+.erow.filled{background:linear-gradient(90deg,rgba(221,243,229,.75),rgba(255,255,255,0) 65%);box-shadow:inset 3px 0 0 #8FD1A9}
+.erow-detail,.breakdown{background:var(--surface-2)}
+.help{background:var(--butter);border-color:var(--butter-2);color:var(--butter-ink)}
+.linkish{color:var(--mint-ink)}
+.input:focus{border-color:#5FB487;box-shadow:0 0 0 3px rgba(143,209,169,.35)}
+.badge.oma{background:var(--sky);color:#1C4F8C}
+.badge.yhteinen{background:var(--mint);color:var(--mint-ink)}
+/* Ilmoitukset ja tietosuoja */
+.notice.info{background:var(--butter);border-color:var(--butter-2);color:var(--butter-ink)}
+.notice.warn{background:var(--blush);border-color:var(--blush-2);color:var(--blush-ink)}
+.privacy{background:var(--mint);border-color:var(--mint-2);color:var(--ink-2)}
+.privacy .shield{background:#fff}
+.welcome{background:linear-gradient(135deg,#FCE3EA 0%,#FFF2C6 55%,#DDF3E5 100%);border:1px solid rgba(23,32,27,.06)}
+.welcome p{color:var(--ink-2)}
+.ok-tag.ok{background:var(--mint);color:var(--mint-ink)}
+.ok-tag.fail{background:var(--blush);color:var(--blush-ink)}
+.toast{background:var(--brand)}
+.export-opt:hover{background:var(--mint);border-color:var(--mint-2)}
+table.data th{color:var(--ink-3)}
+.legend-table td{border-bottom-color:var(--line)}
+.top-item .bar{background:#F1ECE2}
+.foot{color:var(--ink-3)}
+
+/* ===== Johdonmukainen värikoodaus ===== */
+:root{
+  --g-soft:#DDF3E5; --g-border:#BDE5CC; --g-ink:#1D5A3B; --g-mark:#1F8A52;
+  --y-soft:#FFF2C6; --y-border:#F6DE8D; --y-ink:#5C4500;
+  --red-soft:#FDE2E2; --r-border:#F5B5B5; --r-ink:#8E1F1F; --r-mark:#C93C3C;
+}
+.kpi.id-assets,.kpi.tone-good{background:var(--g-soft);border-color:var(--g-border)}
+.kpi.id-debts,.kpi.tone-bad{background:var(--red-soft);border-color:var(--r-border)}
+.kpi.tone-neutral{background:var(--y-soft);border-color:var(--y-border)}
+.hero.tone-good{background:linear-gradient(135deg,#CDEEDA 0%,#E2F5E8 60%,#F1FAF3 100%)}
+.hero.tone-neutral{background:linear-gradient(135deg,#FFEDB3 0%,#FFF4CF 60%,#FFFAEA 100%)}
+.hero.tone-bad{background:linear-gradient(135deg,#FBD3D3 0%,#FDE4E4 60%,#FFF3F3 100%)}
+.hero.tone-good::after{background:radial-gradient(circle,rgba(143,209,169,.55),rgba(143,209,169,0) 70%)}
+.hero.tone-neutral::after{background:radial-gradient(circle,rgba(246,222,141,.7),rgba(246,222,141,0) 70%)}
+.hero.tone-bad::after{background:radial-gradient(circle,rgba(245,181,181,.7),rgba(245,181,181,0) 70%)}
+.hero .label{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hero .delta.good{background:#fff;color:var(--g-ink)} .hero .delta.bad{background:#fff;color:var(--r-ink)} .hero .delta.neutral{background:#fff;color:var(--y-ink)}
+.tpill{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:700;letter-spacing:.01em;background:#fff;border:1px solid}
+.tpill.good{color:var(--g-ink);border-color:var(--g-border)} .tpill.neutral{color:var(--y-ink);border-color:var(--y-border)} .tpill.bad{color:var(--r-ink);border-color:var(--r-border)}
+.chg{display:inline-block;padding:2px 9px;border-radius:999px;font-weight:700}
+.chg.good{background:var(--g-soft);color:var(--g-ink)} .chg.neutral{background:var(--y-soft);color:var(--y-ink)} .chg.bad{background:var(--red-soft);color:var(--r-ink)}
+b.tg{color:var(--g-ink)} b.tn{color:var(--y-ink)} b.tb{color:var(--r-ink)}
+/* Varat = vihreä */
+#v-varat .cat-ico{background:var(--g-soft)!important}
+#v-varat .cat-head{background:linear-gradient(90deg,var(--g-soft) 0%,rgba(255,255,255,0) 75%)}
+#v-varat .help{background:var(--g-soft);border-color:var(--g-border);color:var(--g-ink)}
+#v-varat .linkish{color:var(--g-ink)}
+#v-varat .erow.filled{background:linear-gradient(90deg,rgba(221,243,229,.8),rgba(255,255,255,0) 65%);box-shadow:inset 3px 0 0 var(--g-mark)}
+#v-varat .erow.filled .erow-out b{color:var(--g-ink)}
+#v-varat [data-out="assets-total"]{color:var(--g-ink)}
+/* Velat = punainen */
+#v-velat .cat-head{background:linear-gradient(90deg,var(--red-soft) 0%,rgba(255,255,255,0) 75%)}
+#v-velat .help{background:var(--red-soft);border-color:var(--r-border);color:var(--r-ink)}
+#v-velat .linkish{color:var(--r-ink)}
+#v-velat .erow.filled{background:linear-gradient(90deg,rgba(253,226,226,.85),rgba(255,255,255,0) 65%);box-shadow:inset 3px 0 0 var(--r-mark)}
+#v-velat .erow.filled .erow-out b{color:var(--r-ink)}
+#v-velat [data-out="debts-total"]{color:var(--r-ink)}
+#v-velat .input:focus{border-color:#D97878;box-shadow:0 0 0 3px rgba(245,181,181,.45)}
+.notice.ex{background:var(--y-soft);border-color:var(--y-border);color:var(--y-ink);align-items:center}
+.notice.prompt{padding:16px 18px;font-size:14px}
+.prompt-ico{flex:none;width:38px;height:38px;border-radius:12px;background:#fff;display:grid;place-items:center;font-size:18px;color:var(--y-ink)}
+.prompt-act{display:flex;gap:8px;flex-wrap:wrap}
+.seo{margin-top:28px}
+.seo h2{font-size:19px;margin:0 0 12px;letter-spacing:-.01em}
+.seo h3{font-size:15px;margin:14px 0 8px}
+.seo p,.seo li{color:var(--ink-2);font-size:14px}
+.seo ul{padding-left:20px;margin:0}
+.seo-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:24px}
+.seo-grid h3{margin-top:0}
+@media (max-width:760px){.seo-grid{grid-template-columns:1fr;gap:6px}}
+.seo details{border-top:1px solid var(--line);padding:10px 0}
+.seo summary{cursor:pointer;font-weight:600;font-size:14px}
+.seo details p{margin:8px 0 0}
+.site-foot{background:#1E3B2F;color:#E4EEE8;padding:44px 0 26px;margin-top:8px}
+.site-foot a{color:#fff;text-decoration:none}
+.site-foot a:hover{text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:36px}
+.foot-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:#fff}
+.site-foot p{margin:12px 0 0;font-size:13.5px;line-height:1.6;color:#C9DBD0}
+.foot-col h2{margin:0 0 12px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#BDE5CC}
+.foot-col p{margin:0}
+.foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+.foot-bottom{margin-top:34px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:12px 28px;flex-wrap:wrap}
+.foot-bottom p{margin:0;font-size:12.5px}
+.foot-copy{color:#E4EEE8!important;white-space:nowrap}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr;gap:24px}.foot-copy{white-space:normal}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-row">
+      <div class="brand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32" aria-hidden="true">  <defs>    <linearGradient id="bm" x1="0" y1="0" x2="1" y2="1">      <stop offset="0" stop-color="#BDE5CC"/>      <stop offset=".55" stop-color="#F6DE8D"/>      <stop offset="1" stop-color="#F4BFCF"/>    </linearGradient>  </defs>  <rect width="64" height="64" rx="15" fill="url(#bm)"/>  <path d="M14 46 L27 31 L36 38 L50 20" fill="none" stroke="#17201B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>  <circle cx="50" cy="20" r="5" fill="#1F8A52" stroke="#17201B" stroke-width="2.5"/></svg>
+        <div><h1 class="brand-h1">Nettovarallisuuslaskuri</h1><small>Laske nettovarallisuutesi</small></div>
+      </div>
+      <div class="spacer"></div>
+      <div class="seg" role="group" aria-label="Näkymä">
+        <button type="button" data-action="set-view" data-view="oma">Oma osuus</button>
+        <button type="button" data-action="set-view" data-view="kotitalous">Kotitalous</button>
+      </div>
+      <button class="btn sm hide-sm" data-action="open-export">Vie / raportti</button>
+    </div>
+    <nav class="tabs" aria-label="Päävalikko">
+      <a href="#yleiskatsaus" data-tab="yleiskatsaus">Yleiskatsaus</a>
+      <a href="#varat" data-tab="varat">Varat</a>
+      <a href="#velat" data-tab="velat">Velat</a>
+      <a href="#kehitys" data-tab="kehitys">Kehitys</a>
+      <a href="#ohjeet" data-tab="ohjeet">Ohjeet ja tiedot</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="storage-warn"></div>
+
+  <!-- YLEISKATSAUS -->
+  <section class="view" id="v-yleiskatsaus"></section>
+  <!-- VARAT -->
+  <section class="view" id="v-varat"></section>
+  <!-- VELAT -->
+  <section class="view" id="v-velat"></section>
+  <!-- KEHITYS -->
+  <section class="view" id="v-kehitys"></section>
+  <!-- OHJEET -->
+  <section class="view" id="v-ohjeet"></section>
+
+  <section class="seo card" aria-labelledby="seo-h">
+    <h2 id="seo-h">Mikä on nettovarallisuus ja miten se lasketaan?</h2>
+    <div class="seo-grid">
+      <div>
+        <p><b>Nettovarallisuus</b> on varojen ja velkojen erotus: kaikki omaisuutesi markkina-arvoon arvostettuna miinus jäljellä olevat velat. Se kertoo, paljonko varallisuutta jäisi, jos kaikki velat maksettaisiin pois – ja on yksi selkeimmistä mittareista oman talouden kehityksen seuraamiseen.</p>
+        <p>Tämä ilmainen <b>nettovarallisuuslaskuri</b> on tehty Suomen markkinoille. Se huomioi pankkitalletukset, oman asunnon ja sijoitusasunnot, mökit, osakkeet ja rahastot, kryptovaluutat, metsäomaisuuden, ajoneuvot sekä yritysomaisuuden – ja velkapuolella asuntolainat, opintolainat, autolainat, kulutusluotot ja muut velat.</p>
+      </div>
+      <div>
+        <h3>Näin laskuri toimii</h3>
+        <ul>
+          <li><b>Nettovarallisuus = varat − velat.</b> Varat markkina-arvoon, velat jäljellä olevaan pääomaan.</li>
+          <li>Omistusosuudet lasketaan automaattisesti, ja oman sekä kotitalouden nettovarallisuuden näet erikseen.</li>
+          <li>Yhteinen omaisuus ja yhteinen laina lasketaan kotitaloudelle vain kerran.</li>
+          <li>Tallenna tilannekuvia ja seuraa varallisuuden kehitystä ajan kuluessa.</li>
+          <li>Täysin anonyymi: tietoja ei kerätä eikä lähetetä mihinkään.</li>
+        </ul>
+      </div>
+    </div>
+    <h3>Usein kysyttyä</h3>
+    <details><summary>Onko nettovarallisuus sama kuin verotettava varallisuus?</summary><p>Ei. Nettovarallisuus kuvaa varojen ja velkojen erotusta. Laskuri ei vähennä laskennallisia luovutusvoittoveroja, joita omaisuuden myynnistä voisi syntyä.</p></details>
+    <details><summary>Pitääkö kaikki kohdat täyttää?</summary><p>Ei. Täytä vain ne varat ja velat, jotka koskevat sinua – tyhjät rivit eivät vaikuta laskelmaan.</p></details>
+    <details><summary>Tallentaako nettovarallisuuslaskuri tietojani?</summary><p>Ei. Luvut säilyvät vain omalla laitteellasi selaimen muistissa, ja voit poistaa ne milloin tahansa.</p></details>
+  </section>
+  <noscript><p class="card" style="margin-top:18px">Nettovarallisuuslaskuri vaatii toimiakseen JavaScriptin. Ota JavaScript käyttöön selaimessasi.</p></noscript>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="28" height="28" aria-hidden="true">  <defs>    <linearGradient id="fm" x1="0" y1="0" x2="1" y2="1">      <stop offset="0" stop-color="#BDE5CC"/>      <stop offset=".55" stop-color="#F6DE8D"/>      <stop offset="1" stop-color="#F4BFCF"/>    </linearGradient>  </defs>  <rect width="64" height="64" rx="15" fill="url(#fm)"/>  <path d="M14 46 L27 31 L36 38 L50 20" fill="none" stroke="#17201B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>  <circle cx="50" cy="20" r="5" fill="#1F8A52" stroke="#17201B" stroke-width="2.5"/></svg><span>Nettovarallisuus.fi</span></div>
+        <p>Ilmainen ja anonyymi nettovarallisuuslaskuri Suomen markkinoille. Laske varat, velat ja nettovarallisuus – omasi ja koko kotitalouden.</p>
+      </div>
+      <nav class="foot-col" aria-label="Alavalikko">
+        <h2>Laskuri</h2>
+        <ul>
+          <li><a href="#yleiskatsaus">Yleiskatsaus</a></li>
+          <li><a href="#varat">Varat</a></li>
+          <li><a href="#velat">Velat</a></li>
+          <li><a href="#kehitys">Varallisuuden kehitys</a></li>
+          <li><a href="#ohjeet">Ohjeet ja tiedot</a></li>
+        </ul>
+      </nav>
+      <div class="foot-col">
+        <h2>Tietosuoja</h2>
+        <p>Laskuri toimii täysin anonyymisti. Tietoja ei kerätä, lähetetä eikä tallenneta millekään palvelimelle – luvut säilyvät vain omalla laitteellasi.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-disclaimer">Laskuri on suuntaa-antava varallisuudenhallinnan työkalu, ei kirjanpito-, vero- tai sijoitusneuvontapalvelu.</p>
+      <p class="foot-copy">© <span id="copy-year">2026</span> <a href="https://vernerconsulting.com" rel="noopener">Verner Consulting</a>. Kaikki oikeudet pidätetään.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-back" id="modal-back" aria-hidden="true"><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="report-root" aria-hidden="true"></div>
+
+<script>
+"use strict";
+/* =========================================================
+   MÄÄRITYKSET
+   ========================================================= */
+const ICONS = {
+  pankki:'<path d="M3 10h18M5 10v8M9 10v8M15 10v8M19 10v8M3 21h18M12 3l9 5H3z"/>',
+  asunnot:'<path d="M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-6h4v6"/>',
+  sijoitukset:'<path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/>',
+  metsa:'<path d="M12 3l-5 7h3l-4 6h12l-4-6h3zM12 16v5"/>',
+  ajoneuvot:'<path d="M5 16h14M6 16l1.5-5h9L18 16M4 16v3h3v-3M17 16v3h3v-3M8 13h8"/>',
+  yritys:'<path d="M4 8h16v12H4zM9 8V5h6v3M4 13h16"/>',
+  velka:'<path d="M3 7h18v10H3zM3 11h18M7 15h3"/>'
+};
+const ASSET_CATS = [
+  {key:'pankki', tint:'#DDF3E5', name:'Pankkivarat', color:'var(--s1)', hex:'#0E5132',
+   subs:['Käyttötilit','Säästötilit','Määräaikaistalletukset','Käteinen'],
+   help:'Syötä tilien saldo arvopäivänä. Kertyneitä tai tulevia korkoja ei tarvitse lisätä. Yhteistilin saldo kirjataan kerran ja merkitään yhteiseksi – sovellus jakaa sen omistusosuuksien mukaan.'},
+  {key:'asunnot', tint:'#DDF3E5', name:'Asunnot ja kiinteistöt', color:'var(--s2)', hex:'#93D6AC',
+   subs:['Oma vakituinen asunto','Sijoitusasunnot','Vapaa-ajan asunnot ja mökit','Tontit ja maa-alueet','Kiinteistöt','Muut kiinteistöomistukset'],
+   help:'Syötä koko kohteen arvioitu markkina-arvo (esim. alueen toteutuneiden kauppojen perusteella). Omistusosuuden mukainen arvo lasketaan automaattisesti. Kohteisiin liittyvät lainat syötetään Velat-välilehdelle. Jos käytät asunto-osakkeesta velatonta hintaa, lisää lainaan myös asunnon osuus taloyhtiön lainasta.'},
+  {key:'sijoitukset', tint:'#DDF3E5', name:'Sijoitukset', color:'var(--s3)', hex:'#2A8F58',
+   subs:['Pörssiosakkeet','ETF-rahastot','Muut rahastot','Kryptovaluutat','Listaamattomat osakkeet','Muut sijoitukset'],
+   help:'Syötä sijoitusten nykyinen markkina-arvo, ei hankintahintaa. Arvo-osuustilin, osakesäästötilin ja rahastojen arvot voi syöttää omina erinään. Sijoituslainat (esim. vipulaina) kirjataan Velat-osioon.'},
+  {key:'metsa', tint:'#DDF3E5', name:'Metsäomaisuus', color:'var(--s4)', hex:'#CFEFDA',
+   subs:['Metsätilat','Muut maa- ja metsäomistukset'],
+   help:'Metsätilojen arvon voi syöttää joko yhtenä kokonaisarvona tai erikseen metsämaan ja puuston arvona. Vain valittu tapa lasketaan, joten samaa arvoa ei lasketa kahdesti. Älä syötä samaa tilaa uudelleen muihin maa- ja metsäomistuksiin. Perikunnan tai yhteismetsän osuus kirjataan omistusosuutena prosentteina, enintään kahdella desimaalilla (esim. 33,33 %).'},
+  {key:'ajoneuvot', tint:'#DDF3E5', name:'Ajoneuvot ja irtaimisto', color:'var(--s5)', hex:'#1A6C42',
+   subs:['Autot','Moottoripyörät','Veneet','Muut ajoneuvot','Keräilyesineet ja muu merkittävä omaisuus'],
+   help:'Käytä realistista jälleenmyyntiarvoa (vastaavien käytettyjen hintataso), ei ostohintaa. Tavanomaista koti-irtaimistoa, kuten huonekaluja, ei tarvitse kirjata. Autolainan voit lisätä Velat-osioon.'},
+  {key:'yritys', tint:'#DDF3E5', name:'Yritysomaisuus ja muut varat', color:'var(--s6)', hex:'#5DBB85',
+   subs:['Oma yritys','Yritysosuudet','Muut arvokkaat omaisuuserät'],
+   help:'Arvioi yrityksen tai osuuden käypä arvo (esim. substanssiarvo tai tehty arvonmääritys) ja merkitse omistusosuutesi. Yrityksen omia velkoja ei kirjata henkilökohtaisiksi veloiksi – ne sisältyvät jo yrityksen arvoon. Henkilökohtaiset takaukset eivät ole velkaa, ellei niitä ole jouduttu maksamaan.'}
+];
+const DEBT_TYPES = [
+  {key:'asuntolaina', name:'Asuntolainat', one:'Asuntolaina', help:'Oman vakituisen asunnon laina. Syötä jäljellä oleva pääoma pankin viimeisimmän tiedon mukaan – ei alkuperäistä lainasummaa. Yhteisen lainan voit jakaa vastuuosuuksiin.'},
+  {key:'sijoitusasuntolaina', name:'Sijoitusasuntolainat', one:'Sijoitusasuntolaina', help:'Vuokra- tai sijoitusasunnon hankintaan otettu laina. Syötä jäljellä oleva pääoma.'},
+  {key:'mokkilaina', name:'Mökkilainat', one:'Mökkilaina', help:'Vapaa-ajan asunnon tai mökin laina. Syötä jäljellä oleva pääoma.'},
+  {key:'autolaina', name:'Autolainat', one:'Autolaina', help:'Auto-, rahoitusyhtiö- tai osamaksulaina. Syötä jäljellä oleva pääoma (ilman tulevia korkoja).'},
+  {key:'opintolaina', name:'Opintolainat', one:'Opintolaina', help:'Valtion takaama opintolaina. Syötä nostettu ja vielä maksamatta oleva pääoma.'},
+  {key:'kulutusluotto', name:'Kulutusluotot', one:'Kulutusluotto', help:'Joustoluotot, vakuudettomat lainat ja osamaksut. Syötä tämänhetkinen velkasaldo.'},
+  {key:'luottokortti', name:'Luottokorttivelat', one:'Luottokorttivelka', help:'Luottokortin käytetty luottosaldo. Älä syötä luottorajaa, vaan käytetty osuus.'},
+  {key:'pankkilaina', name:'Muut pankkilainat', one:'Muu pankkilaina', help:'Muut pankkilainat, kuten remonttilaina, sijoituslaina tai metsätilan laina.'},
+  {key:'yksityinen', name:'Lainat yksityishenkilöiltä', one:'Laina yksityishenkilöltä', help:'Esim. vanhemmilta tai ystäviltä saadut lainat, joista on sovittu takaisinmaksu.'},
+  {key:'muu', name:'Muut velat', one:'Muu velka', help:'Muut velat, kuten maksamattomat verot tai muut sitoumukset.'}
+];
+const OWNER_LABEL = {oma:'Oma', puoliso:'Puoliso', yhteinen:'Yhteinen'};
+const TABS = ['yleiskatsaus','varat','velat','kehitys','ohjeet'];
+const LS_KEY = 'nettovarallisuuslaskuri.v1';
+
+/* =========================================================
+   APUFUNKTIOT: muotoilu ja jäsentäminen
+   ========================================================= */
+const nfEur0 = new Intl.NumberFormat('fi-FI',{style:'currency',currency:'EUR',maximumFractionDigits:0,minimumFractionDigits:0});
+const nfEur2 = new Intl.NumberFormat('fi-FI',{style:'currency',currency:'EUR',maximumFractionDigits:2,minimumFractionDigits:0});
+const nfNum0 = new Intl.NumberFormat('fi-FI',{maximumFractionDigits:0});
+const nfNum2 = new Intl.NumberFormat('fi-FI',{maximumFractionDigits:2});
+const nfPct1 = new Intl.NumberFormat('fi-FI',{style:'percent',maximumFractionDigits:1,minimumFractionDigits:1});
+const nfPct2 = new Intl.NumberFormat('fi-FI',{style:'percent',maximumFractionDigits:2});
+// Pyöristys vain näytössä; laskenta tehdään täydellä tarkkuudella.
+const eur = n => nfEur0.format(Math.round(n||0) === 0 ? 0 : Math.round(n));
+const eurX = n => nfEur2.format(Math.round((n||0)*100)/100);
+const pct = f => (isFinite(f) ? nfPct1.format(f) : '–');
+function shareLabel(f, txt){
+  if (txt && /\//.test(txt)) return txt.replace(/\s+/g,'') + ' (' + nfPct2.format(f) + ')';
+  return nfPct2.format(f);
+}
+function compactEur(n){
+  const a = Math.abs(n);
+  if (a >= 1e6) return nfNum2.format(Math.round(n/1e4)/100) + ' M€';
+  if (a >= 1e3) return nfNum0.format(Math.round(n/1e3)) + ' t€';
+  return nfNum0.format(n) + ' €';
+}
+function parseNum(v){
+  if (typeof v === 'number') return v;
+  if (v == null) return NaN;
+  let s = String(v).replace(/[\s  €]/g,'').replace(/−/g,'-');
+  if (s === '') return NaN;
+  if (/^-?\d+(,\d+)?$/.test(s)) s = s.replace(',', '.');
+  else if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(s)) s = s.replace(/\./g,'').replace(',', '.');
+  const n = Number(s);
+  return isFinite(n) ? n : NaN;
+}
+// Omistusosuus: "50", "50 %", "33,33", "1/3" -> murtoluku 0..1
+function parseShare(v){
+  if (v == null) return NaN;
+  const s = String(v).replace(/[\s %]/g,'').replace(',', '.');
+  if (s === '') return NaN;
+  const m = s.match(/^(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
+  if (m){ const d = Number(m[2]); return d > 0 ? Number(m[1])/d : NaN; }
+  const n = Number(s);
+  return isFinite(n) ? n/100 : NaN;
+}
+function fmtInputNum(n){ return (n===''||n==null||!isFinite(n)) ? '' : nfNum2.format(n); }
+function isoToday(){ const d = new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function fiDate(iso){ if(!iso) return ''; const [y,m,d] = iso.split('-'); return d+'.'+m+'.'+y; }
+function parseFiDate(s){
+  const m = String(s||'').trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+  if (!m) return null;
+  const d = +m[1], mo = +m[2], y = +m[3];
+  const dt = new Date(y, mo-1, d);
+  if (dt.getFullYear()!==y || dt.getMonth()!==mo-1 || dt.getDate()!==d) return null;
+  return y+'-'+String(mo).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+}
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+const catOf = k => ASSET_CATS.find(c => c.key === k);
+const debtOf = k => DEBT_TYPES.find(d => d.key === k);
+const icon = (k, color, size=20) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k]||ICONS.velka}</svg>`;
+
+/* =========================================================
+   TILA JA TALLENNUS (vain selaimen paikallinen muisti)
+   ========================================================= */
+let storageOK = true;
+function defaultState(){ return {v:7, items:[], snapshots:[], settings:{view:'oma', interval:'kuukausi'}}; }
+function loadState(){
+  try{
+    const t = '__nv_test'; localStorage.setItem(t,'1'); localStorage.removeItem(t);
+    const raw = localStorage.getItem(LS_KEY);
+    if (raw){ const s = JSON.parse(raw); if (s && s.example){ s.items = []; delete s.example; } if (s && Array.isArray(s.items)) return migrate(Object.assign(defaultState(), s, {settings:Object.assign(defaultState().settings, s.settings||{})})); }
+  }catch(e){ storageOK = false; }
+  return defaultState();
+}
+// Aiemman version (erillisiä eriä) tiedot yhdistetään riveihin: yksi rivi per alaluokka / velkatyyppi.
+const OLD_SUBS = {'Käyttötili':'Käyttötilit','Säästötili':'Säästötilit','Määräaikaistalletus':'Määräaikaistalletukset','Sijoitusasunto':'Sijoitusasunnot','Vapaa-ajan asunto / mökki':'Vapaa-ajan asunnot ja mökit','Tontti tai maa-alue':'Tontit ja maa-alueet','Kiinteistö':'Kiinteistöt','Muu kiinteistöomistus':'Muut kiinteistöomistukset','Metsätila':'Metsätilat','Metsämaa':'Muut maa- ja metsäomistukset','Puusto':'Muut maa- ja metsäomistukset','Muu maa- ja metsäomistus':'Muut maa- ja metsäomistukset','Auto':'Autot','Moottoripyörä':'Moottoripyörät','Vene':'Veneet','Muu ajoneuvo':'Muut ajoneuvot','Keräilyesineet ja muu arvokas irtaimisto':'Keräilyesineet ja muu merkittävä omaisuus','Yritysosuus':'Yritysosuudet','Muu arvokas omaisuuserä':'Muut arvokkaat omaisuuserät'};
+function migrate(st){
+  if ((st.v||1) < 2) migrateV1(st);
+  if (st.v < 3){
+    // v2: asuntojen rivillä ollut laina siirretään vastaavalle Velat-riville.
+    const LT = {'Oma vakituinen asunto':'asuntolaina','Sijoitusasunnot':'sijoitusasuntolaina','Vapaa-ajan asunnot ja mökit':'mokkilaina'};
+    for (const it of st.items.slice()){
+      const lp = parseNum(it.loanPrincipal);
+      if (it.kind === 'asset' && lp > 0){
+        const type = LT[it.sub] || 'pankkilaina', id = 'd|'+type;
+        const ex = st.items.find(x => x.id === id);
+        if (ex) ex.value = (parseNum(ex.value)||0) + lp;
+        else st.items.push({id, kind:'debt', type, name:debtOf(type).name, value:lp, owner:it.owner, ownShareTxt:it.ownShareTxt, spouseShareTxt:it.spouseShareTxt, notes:''});
+      }
+      if (it.kind === 'asset') delete it.loanPrincipal;
+    }
+    st.v = 3;
+  }
+  if (st.v < 4){
+    // Varoissa ei ole enää "Puolison"-omistajaa: puolison omaisuus = yhteinen, oma osuus 0 %.
+    st.items.forEach(it => { if (it.kind === 'asset' && it.owner === 'puoliso'){ it.owner = 'yhteinen'; it.ownShareTxt = '0'; } });
+    st.v = 4;
+  }
+  if (st.v < 5){
+    // Metsäomaisuuden murto-osat (esim. 1/3) muutetaan prosenteiksi.
+    const toPct = t => { if (!/\//.test(String(t||''))) return t; const f = parseShare(t); return isFinite(f) ? String(Math.round(f*1e8)/1e6).replace('.', ',') : t; };
+    st.items.forEach(it => { if (it.kind === 'asset' && it.cat === 'metsa'){ it.ownShareTxt = toPct(it.ownShareTxt); it.spouseShareTxt = toPct(it.spouseShareTxt); } });
+    st.v = 5;
+  }
+  if (st.v < 6){
+    // Prosenttiosuudet pyöristetään kahteen desimaaliin.
+    const r2 = t => { const x = String(t==null?'':t).trim(); if (!/^\d+([.,]\d+)?\s*%?$/.test(x)) return t; const n = Number(x.replace('%','').replace(',','.')); return String(Math.round(n*100)/100).replace('.', ','); };
+    st.items.forEach(it => { it.ownShareTxt = r2(it.ownShareTxt); it.spouseShareTxt = r2(it.spouseShareTxt); });
+    st.v = 6;
+  }
+  if (st.v < 7){
+    // Veloissakaan ei ole enää "Puolison"-vaihtoehtoa: puolison velka = yhteinen, oma osuus 0 %.
+    st.items.forEach(it => { if (it.owner === 'puoliso'){ it.owner = 'yhteinen'; it.ownShareTxt = '0'; } });
+    st.v = 7;
+  }
+  return st;
+}
+function migrateV1(st){
+  const out = [];
+  for (const it of st.items){
+    let id;
+    if (it.kind === 'asset'){
+      const cat = catOf(it.cat); if (!cat) continue;
+      let sub = OLD_SUBS[it.sub] || it.sub; if (!cat.subs.includes(sub)) sub = cat.subs[cat.subs.length-1];
+      const gross = (it.forestMode === 'split') ? (parseNum(it.land)||0) + (parseNum(it.timber)||0) : (parseNum(it.value)||0);
+      id = 'a|'+it.cat+'|'+sub;
+      const ex = out.find(x => x.id === id);
+      if (ex){ ex.value = (parseNum(ex.value)||0) + gross; ex.loanPrincipal = (parseNum(ex.loanPrincipal)||0) + (parseNum(it.loanPrincipal)||0) || '';
+        ex.notes = [ex.notes, it.name, it.notes].filter(Boolean).join(' · '); continue; }
+      out.push({id, kind:'asset', cat:it.cat, sub, name:sub, value:gross, owner:it.owner||'oma', ownShareTxt:it.ownShareTxt||'100', spouseShareTxt:it.spouseShareTxt||'100', forestMode:'total', loanPrincipal: it.cat === 'asunnot' ? (it.loanPrincipal||'') : '', notes:[it.name!==it.sub?it.name:'', it.notes].filter(Boolean).join(' · ')});
+      if (it.cat !== 'asunnot' && parseNum(it.loanPrincipal) > 0) out.push({id:'d|pankkilaina', kind:'debt', type:'pankkilaina', name:'Muut pankkilainat', value:parseNum(it.loanPrincipal), owner:it.owner||'oma', ownShareTxt:it.ownShareTxt||'100', spouseShareTxt:it.spouseShareTxt||'100', notes:''});
+    } else {
+      id = 'd|'+it.type; const ex = out.find(x => x.id === id);
+      if (ex){ ex.value = (parseNum(ex.value)||0) + (parseNum(it.value)||0); continue; }
+      out.push({id, kind:'debt', type:it.type, name:debtOf(it.type).name, value:it.value, owner:it.owner||'oma', ownShareTxt:it.ownShareTxt||'100', spouseShareTxt:it.spouseShareTxt||'100', notes:it.notes||''});
+    }
+  }
+  st.items = out; st.v = 2;
+}
+let state = loadState();
+function persist(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); storageOK = true; }
+  catch(e){ storageOK = false; }
+  renderStorageWarn();
+}
+
+/* =========================================================
+   LASKENTALOGIIKKA
+   ========================================================= */
+// Palauttaa {own, spouse, valid} murto-osina omistajatyypin mukaan.
+function sharesFor(owner, ownTxt, spouseTxt){
+  let own = 0, spouse = 0, valid = true;
+  if (owner === 'oma'){ own = parseShare(ownTxt); }
+  else if (owner === 'puoliso'){ spouse = parseShare(spouseTxt); }
+  else { own = parseShare(ownTxt); spouse = parseShare(spouseTxt); }
+  if (!isFinite(own) || !isFinite(spouse) || own < 0 || spouse < 0 || own + spouse > 1 + 1e-9) valid = false;
+  if (!isFinite(own)) own = 0; if (!isFinite(spouse)) spouse = 0;
+  return {own, spouse, valid};
+}
+function loanTypeFor(item){
+  if (item.cat === 'asunnot'){
+    if (item.sub === 'Oma vakituinen asunto') return 'asuntolaina';
+    if (item.sub === 'Sijoitusasunnot') return 'sijoitusasuntolaina';
+    if (item.sub === 'Vapaa-ajan asunnot ja mökit') return 'mokkilaina';
+  }
+  return 'pankkilaina';
+}
+// Lainat syötetään vain Velat-välilehdelle, jotta samaa velkaa ei syötetä kahteen kertaan.
+const canHaveLoan = cat => false;
+// Laskee yksittäisen rivin arvot täydellä tarkkuudella.
+// Kohteeseen liitetyn lainan vastuuosuus = kohteen omistusosuus.
+function computeItem(it){
+  const s = sharesFor(it.owner, it.ownShareTxt, it.spouseShareTxt);
+  if (it.kind === 'debt'){
+    const p = Math.max(0, parseNum(it.value) || 0);
+    return {gross:p, own:p*s.own, spouse:p*s.spouse, hh:p*(s.own+s.spouse), s};
+  }
+  let gross;
+  if (it.cat === 'metsa' && it.forestMode === 'split') gross = Math.max(0, parseNum(it.land)||0) + Math.max(0, parseNum(it.timber)||0);
+  else gross = Math.max(0, parseNum(it.value) || 0);
+  const r = {gross, own:gross*s.own, spouse:gross*s.spouse, hh:gross*(s.own+s.spouse), s, loan:null};
+  const lp = Math.max(0, parseNum(it.loanPrincipal) || 0);
+  if (canHaveLoan(it.cat) && lp > 0)
+    r.loan = {principal:lp, own:lp*s.own, spouse:lp*s.spouse, hh:lp*(s.own+s.spouse), s, type:loanTypeFor(it)};
+  return r;
+}
+// Tulosten värikoodaus: hyvä = vihreä, neutraali = keltainen, heikko = punainen.
+// Velkojen osuus varoista: alle 40 % hyvä, 40–60 % neutraali, yli 60 % heikko.
+function toneDebtRatio(r, debts){ if (!debts) return 'good'; if (!isFinite(r)) return 'bad'; return r < 0.4 ? 'good' : r <= 0.6 ? 'neutral' : 'bad'; }
+const toneSign = d => d > 0.5 ? 'good' : d < -0.5 ? 'bad' : 'neutral';
+const TONE_LABEL = {good:'Hyvä', neutral:'Kohtalainen', bad:'Heikko'};
+const TONE_ICON = {good:'✓', neutral:'●', bad:'!'};
+const pill = (tone, text) => `<span class="tpill ${tone}"><span aria-hidden="true">${TONE_ICON[tone]}</span>${text}</span>`;
+const pick = (c, view) => view === 'kotitalous' ? c.hh : view === 'puoliso' ? c.spouse : c.own;
+// Kokonaislaskenta. Jokainen rivi on tallennettu kerran, ja yhteinen omaisuus jaetaan
+// osuuksiin: kotitalouden luku = oma osuus + puolison osuus (ei kaksinkertaista laskentaa).
+function computeTotals(items, view){
+  const byCat = {}; ASSET_CATS.forEach(c => byCat[c.key] = 0);
+  const byDebt = {}; DEBT_TYPES.forEach(d => byDebt[d.key] = 0);
+  let assets = 0, debts = 0; const assetRows = [], debtRows = [];
+  for (const it of items){
+    const c = computeItem(it);
+    if (it.kind === 'asset'){
+      if (c.gross <= 0 && !c.loan) continue;
+      const v = pick(c, view);
+      assets += v; byCat[it.cat] = (byCat[it.cat]||0) + v;
+      assetRows.push({it, c, v, loanV: c.loan ? pick(c.loan, view) : 0});
+      if (c.loan){ const lv = pick(c.loan, view); debts += lv; byDebt[c.loan.type] += lv;
+        debtRows.push({it, c:c.loan, v:lv, linked:true, type:c.loan.type}); }
+    } else {
+      if (c.gross <= 0) continue;
+      const v = pick(c, view);
+      debts += v; byDebt[it.type] = (byDebt[it.type]||0) + v;
+      debtRows.push({it, c, v, linked:false, type:it.type});
+    }
+  }
+  return {assets, debts, net:assets-debts, byCat, byDebt, assetRows, debtRows,
+          debtRatio: assets > 0 ? debts/assets : (debts > 0 ? Infinity : 0),
+          equityRatio: assets > 0 ? (assets-debts)/assets : 0};
+}
+
+/* =========================================================
+   TESTIDATA
+   ========================================================= */
+function testItems(){
+  const A = (cat, sub, o) => Object.assign({id:'a|'+cat+'|'+sub, kind:'asset', cat, sub, name:sub, owner:'oma', ownShareTxt:'100', spouseShareTxt:'100', notes:''}, o);
+  return [
+    A('asunnot','Oma vakituinen asunto',{value:400000, owner:'yhteinen', ownShareTxt:'50', spouseShareTxt:'50', notes:'Testiesimerkki: asunto 400 000 €, omistusosuus 50 %.'}),
+    A('sijoitukset','ETF-rahastot',{value:50000}),
+    A('pankki','Säästötilit',{value:10000}),
+    A('ajoneuvot','Autot',{value:40000}),
+    A('metsa','Metsätilat',{value:120000, forestMode:'total', ownShareTxt:'33,33', notes:'Omistusosuus 1/3 syötettynä prosentteina (33,33 %) – loput 2/3 omistavat kotitalouden ulkopuoliset.'}),
+    {id:'d|asuntolaina', kind:'debt', type:'asuntolaina', name:'Asuntolainat', value:200000, owner:'yhteinen', ownShareTxt:'50', spouseShareTxt:'50', notes:'Testiesimerkki: asuntolaina 200 000 €, henkilökohtainen vastuu 50 %.'},
+    {id:'d|autolaina', kind:'debt', type:'autolaina', name:'Autolainat', value:15000, owner:'oma', ownShareTxt:'100', spouseShareTxt:'100', notes:''}
+  ];
+}
+// Metsän osuus 1/3 syötetään kahden desimaalin tarkkuudella (33,33 %): 120 000 € × 33,33 % = 39 996 €.
+const TEST_EXPECT = {oma:{assets:339996, debts:115000, net:224996}, kotitalous:{assets:539996, debts:215000, net:324996}};
+
+/* =========================================================
+   UI-TILA
+   ========================================================= */
+let currentTab = 'yleiskatsaus';
+const openHelp = new Set(), openBd = new Set();
+let compareA = null, compareB = 'now';
+let downloadsApi = null;
+
+function view(){ return state.settings.view; }
+function viewLabel(){ return view()==='kotitalous' ? 'Kotitalous' : 'Oma osuus'; }
+
+/* =========================================================
+   RENDERÖINTI
+   ========================================================= */
+function renderAll(){
+  document.querySelectorAll('[data-action="set-view"]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === view())));
+  document.querySelectorAll('.tabs a').forEach(a => { if (a.dataset.tab === currentTab) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  TABS.forEach(t => document.getElementById('v-'+t).classList.toggle('active', t === currentTab));
+  const fn = {yleiskatsaus:renderDashboard, varat:renderAssets, velat:renderDebts, kehitys:renderHistory, ohjeet:renderHelp}[currentTab];
+  fn();
+  renderStorageWarn();
+}
+function renderStorageWarn(){
+  const el = document.getElementById('storage-warn');
+  el.innerHTML = storageOK ? '' : `<div class="notice warn"><div class="grow"><b>Tallennus ei ole käytettävissä tässä selaimessa.</b> Tiedot säilyvät vain niin kauan kuin sivu on auki. Tallenna varmuuskopio (Vie / raportti → Varmuuskopio), jotta voit palauttaa tiedot myöhemmin.</div></div>`;
+}
+function privacyBox(){
+  return `<div class="privacy"><div class="shield">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17603F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>'}</div>
+  <div><b>Täysin anonyymi käyttö.</b> Kaikki tiedot ovat anonyymejä: laskuri ei kysy nimeä, henkilötunnusta tai tilinumeroita, eikä käyttäjän tietoja kerätä, lähetetä tai tallenneta millekään palvelimelle. Syöttämäsi luvut säilyvät ainoastaan tämän laitteen selaimen omassa muistissa, jotta ne ovat tallessa sivun uudelleenlatauksen jälkeen. Voit poistaa ne milloin tahansa (Ohjeet ja tiedot → Tyhjennä kaikki tiedot).</div></div>`;
+}
+
+/* ---------- Yleiskatsaus ---------- */
+function renderDashboard(){
+  const el = document.getElementById('v-yleiskatsaus');
+  const T = computeTotals(state.items, view());
+  const hasData = T.assets > 0.005 || T.debts > 0.005;
+  const snaps = sortedSnaps();
+  const last = snaps[snaps.length-1];
+  let deltaHtml = '';
+  if (last){
+    const prev = last[view()].net, d = T.net - prev;
+    const rel = prev !== 0 ? d/Math.abs(prev) : null;
+    const arrow = d > 0 ? '▲' : d < 0 ? '▼' : '■';
+    deltaHtml = `<span class="delta ${toneSign(d)}">${arrow} ${d>0?'+':''}${eur(d)}${rel!=null?' ('+(d>0?'+':'')+pct(rel)+')':''} <span style="opacity:.75;font-weight:500">vs. ${fiDate(last.date)}</span></span>`;
+  } else deltaHtml = hasData ? `<span class="delta" style="cursor:pointer" data-action="snapshot">Tallenna ensimmäinen tilannekuva →</span>` : `<span class="delta neutral">Päivittyy reaaliajassa, kun täytät tietoja</span>`;
+  const reminder = snapshotReminder();
+  const dr = T.debtRatio, drW = Math.min(1, isFinite(dr) ? dr : 1), dTone = hasData && T.assets > 0.005 ? toneDebtRatio(dr, T.debts) : 'neutral';
+  const dLabel = hasData ? TONE_LABEL[dTone] : 'Ei tietoja';
+  const catRows = ASSET_CATS.map(c => ({c, v:T.byCat[c.key]})).filter(r => r.v > 0.005);
+  const top = T.assetRows.filter(r => r.v > 0.005).sort((a,b) => b.v - a.v).slice(0,5);
+  const maxTop = top.length ? top[0].v : 1;
+
+  const exampleBanner = hasData ? '' : `<div class="notice ex prompt"><div class="prompt-ico" aria-hidden="true">✎</div><div class="grow"><b>Aloita täyttämällä varat ja velat.</b> Kaikki luvut ovat vielä nollassa. Kun alat täyttää tietoja Varat- ja Velat-välilehdillä, tämä laskelma päivittyy reaaliajassa – jokainen syöttämäsi luku näkyy heti nettovarallisuudessa, tunnusluvuissa ja kaavioissa.</div><div class="prompt-act"><a class="btn sm primary" href="#varat">Täytä varat</a><a class="btn sm" href="#velat">Täytä velat</a></div></div>`;
+  el.innerHTML = `
+    ${exampleBanner}
+    ${reminder}
+    <div class="grid g-hero">
+      <div class="card hero tone-${toneSign(T.net)}">
+        <div class="label">${view()==='kotitalous' ? 'Kotitalouden nettovarallisuus' : 'Oma nettovarallisuus'} ${pill(toneSign(T.net), T.net > 0.5 ? 'Positiivinen' : T.net < -0.5 ? 'Negatiivinen' : 'Nolla')}</div>
+        <div class="big num">${eur(T.net)}</div>
+        ${deltaHtml}
+        <div class="meter">
+          <div class="meter-bar" role="img" aria-label="Velkojen osuus varoista ${pct(dr)}"><span style="width:${hasData ? (1-drW)*100 : 0}%;background:var(--g-mark)"></span><span style="width:${hasData ? drW*100 : 0}%;background:var(--r-mark)"></span></div>
+          <div class="meter-legend"><span><i class="k" style="background:var(--g-mark)"></i>Oma pääoma <b class="num">${eur(Math.max(0,T.net))}</b></span><span><i class="k" style="background:var(--r-mark)"></i>Velat <b class="num">${eur(T.debts)}</b> · ${pct(dr)} varoista</span></div>
+        </div>
+      </div>
+      <div class="side-stats">
+        <div class="card kpi id-assets"><div class="k-label">Kokonaisvarat</div><div class="k-val num">${eur(T.assets)}</div><div class="k-sub">${T.assetRows.length} omaisuuserää · ${viewLabel().toLowerCase()}</div></div>
+        <div class="card kpi id-debts"><div class="k-label">Kokonaisvelat</div><div class="k-val num">${eur(T.debts)}</div><div class="k-sub">${T.debtRows.length} velkaa · jäljellä oleva pääoma</div></div>
+      </div>
+    </div>
+
+    <div class="grid g-kpi" style="margin-top:18px">
+      <div class="card kpi tone-${dTone}"><div class="k-label">Velkojen osuus varoista</div><div class="k-val num">${pct(dr)}</div><div class="k-sub">velat ÷ varat · ${pill(dTone, dLabel)}</div></div>
+      <div class="card kpi tone-${dTone}"><div class="k-label">Omavaraisuusaste</div><div class="k-val num">${pct(T.equityRatio)}</div><div class="k-sub">nettovarallisuus ÷ varat · ${pill(dTone, dLabel)}</div></div>
+      <div class="card kpi tone-${dTone}"><div class="k-label">Varat / velat</div><div class="k-val num">${T.debts>0 ? nfNum2.format(T.assets/T.debts)+' ×' : hasData ? 'ei velkaa' : '–'}</div><div class="k-sub">varojen ja velkojen suhde · ${pill(dTone, dLabel)}</div></div>
+      <div class="card kpi tone-neutral"><div class="k-label">Asuntovarallisuuden osuus</div><div class="k-val num">${pct(T.assets>0 ? T.byCat.asunnot/T.assets : 0)}</div><div class="k-sub">asunnot ja kiinteistöt ÷ varat</div></div>
+    </div>
+    <p class="small muted" style="margin:10px 2px 0">Värit: <b class="tg">vihreä</b> = hyvä, <b class="tn">keltainen</b> = kohtalainen, <b class="tb">punainen</b> = heikko. Velkojen osuus varoista alle 40 % on hyvä, 40–60 % kohtalainen ja yli 60 % heikko.</p>
+
+    <div class="grid g-2" style="margin-top:18px">
+      <div class="card">
+        <div class="card-head"><div><h2>Varallisuuden jakautuminen</h2><p>Varat omaisuusluokittain (${viewLabel().toLowerCase()})</p></div></div>
+        ${catRows.length ? `<div class="donut-wrap"><div id="donut"></div>
+        <table class="legend-table">${catRows.map(r => `<tr><td><span class="sw" style="background:${r.c.hex}"></span>${r.c.name}</td><td class="r num">${eur(r.v)}</td><td class="r num muted" style="width:62px">${pct(r.v/T.assets)}</td></tr>`).join('')}</table></div>` : `<div class="chart-empty">Ei varoja valitussa näkymässä.</div>`}
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>Suurimmat omaisuuserät</h2><p>Arvo omistusosuuden mukaan</p></div></div>
+        ${top.length ? top.map(r => { const c = catOf(r.it.cat); return `
+          <div class="top-item"><div><div class="nm">${esc(r.it.name||r.it.sub)}</div><div class="sb">${c.name}${r.loanV>0?' · netto '+eur(r.v - r.loanV):''}</div></div>
+          <div class="item-val"><b class="num">${eur(r.v)}</b><small>${pct(r.v/T.assets)} varoista</small></div>
+          <div class="bar"><span style="width:${(r.v/maxTop*100).toFixed(2)}%;background:${c.hex}"></span></div></div>`; }).join('') : `<div class="chart-empty">Ei omaisuuseriä.</div>`}
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="card-head"><div style="flex:1"><h2>Varallisuuden kehitys</h2><p>Tallennetut tilannekuvat ja nykytilanne</p></div><button class="btn sm" data-action="snapshot">Tallenna tilannekuva</button></div>
+      <div id="dash-line"></div>
+    </div>
+
+    <div class="grid g-2" style="margin-top:18px">
+      <div class="card">
+        <div class="card-head"><div><h2>Velat lajeittain</h2><p>Jäljellä oleva pääoma vastuuosuuden mukaan</p></div></div>
+        ${T.debts > 0 ? `<table class="legend-table">${DEBT_TYPES.filter(d => T.byDebt[d.key] > 0.005).map(d => `<tr><td><span class="sw" style="background:var(--r-mark)"></span>${d.name}</td><td class="r num">${eur(T.byDebt[d.key])}</td><td class="r num muted" style="width:62px">${pct(T.byDebt[d.key]/T.debts)}</td></tr>`).join('')}</table>` : `<div class="chart-empty" style="min-height:120px">Ei velkoja. </div>`}
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h2>Raportit ja vienti</h2><p>Lataa nettovarallisuusraportti tai vie tiedot taulukkoon</p></div></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn primary" data-action="export-pdf">PDF-raportti</button>
+          <button class="btn" data-action="export-xlsx">Excel (.xlsx)</button>
+          <button class="btn" data-action="export-csv">CSV</button>
+          <button class="btn ghost" data-action="open-export">Lisää vaihtoehtoja</button>
+        </div>
+        <p class="small muted" style="margin:14px 0 0">Raportti luodaan kokonaan omalla laitteellasi – tietoja ei lähetetä mihinkään.</p>
+      </div>
+    </div>
+    <div style="margin-top:18px">${privacyBox()}</div>`;
+  if (catRows.length) drawDonut(document.getElementById('donut'), catRows.map(r => ({v:r.v, color:r.c.hex, label:r.c.name})), T.assets);
+  drawLine(document.getElementById('dash-line'), 240);
+}
+function snapshotReminder(){
+  const snaps = sortedSnaps(); if (!snaps.length || !state.items.length) return '';
+  const last = new Date(snaps[snaps.length-1].date + 'T00:00:00');
+  const days = (Date.now() - last.getTime())/864e5;
+  const lim = state.settings.interval === 'vuosi' ? 365 : 31;
+  if (days < lim) return '';
+  return `<div class="notice info"><div class="grow">Edellisestä tilannekuvasta (${fiDate(snaps[snaps.length-1].date)}) on kulunut yli ${state.settings.interval==='vuosi'?'vuosi':'kuukausi'}. Tallenna uusi tilannekuva, niin näet kehityksen.</div><button class="btn sm" data-action="snapshot">Tallenna nyt</button></div>`;
+}
+
+/* ---------- Kaaviot ---------- */
+function drawDonut(el, segs, total){
+  const size = 200, r = 84, w = 26, cx = size/2, cy = size/2;
+  let a0 = -Math.PI/2; let paths = '';
+  const tot = segs.reduce((s,x) => s + x.v, 0);
+  segs.forEach((s, i) => {
+    const frac = s.v / tot; let a1 = a0 + frac * Math.PI * 2;
+    if (segs.length === 1){
+      paths += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${s.color}" stroke-width="${w}" data-i="${i}"/>`;
+    } else {
+      const large = (a1 - a0) > Math.PI ? 1 : 0;
+      const x0 = cx + r*Math.cos(a0), y0 = cy + r*Math.sin(a0), x1 = cx + r*Math.cos(a1), y1 = cy + r*Math.sin(a1);
+      paths += `<path d="M${x0.toFixed(2)} ${y0.toFixed(2)} A${r} ${r} 0 ${large} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}" fill="none" stroke="${s.color}" stroke-width="${w}" data-i="${i}" style="cursor:default"/>`;
+      // 2px pinnan väli segmenttien väliin
+      paths += `<line x1="${(cx+(r-w/2-1)*Math.cos(a1)).toFixed(2)}" y1="${(cy+(r-w/2-1)*Math.sin(a1)).toFixed(2)}" x2="${(cx+(r+w/2+1)*Math.cos(a1)).toFixed(2)}" y2="${(cy+(r+w/2+1)*Math.sin(a1)).toFixed(2)}" stroke="#fff" stroke-width="2.5"/>`;
+    }
+    a0 = a1;
+  });
+  el.className = 'chart'; el.style.maxWidth = size+'px';
+  el.innerHTML = `<svg viewBox="0 0 ${size} ${size}" role="img" aria-label="Varallisuuden jakautuminen omaisuusluokittain">${paths}
+    <text x="${cx}" y="${cy-4}" text-anchor="middle" font-size="11" fill="#7B8089" font-weight="600">Varat yhteensä</text>
+    <text x="${cx}" y="${cy+16}" text-anchor="middle" font-size="16" fill="#15171B" font-weight="800" style="font-variant-numeric:tabular-nums">${compactEur(total)}</text></svg><div class="tooltip"></div>`;
+  const tt = el.querySelector('.tooltip');
+  el.querySelectorAll('[data-i]').forEach(p => {
+    p.addEventListener('mousemove', e => { const s = segs[+p.dataset.i]; const rc = el.getBoundingClientRect();
+      tt.innerHTML = `<div class="tt-row"><span><span class="sw" style="background:${s.color}"></span>${esc(s.label)}</span><b>${eur(s.v)}</b></div><div class="tt-row"><span style="opacity:.7">Osuus varoista</span><b>${pct(s.v/tot)}</b></div>`;
+      tt.style.opacity = 1; tt.style.left = Math.min(e.clientX - rc.left + 12, rc.width - 40) + 'px'; tt.style.top = (e.clientY - rc.top + 12) + 'px'; });
+    p.addEventListener('mouseleave', () => tt.style.opacity = 0);
+  });
+}
+function niceTicks(min, max, n){
+  if (min === max){ max = min + 1; }
+  const span = max - min, step0 = span / n, mag = Math.pow(10, Math.floor(Math.log10(step0)));
+  const err = step0 / mag; const step = (err >= 7.5 ? 10 : err >= 3.5 ? 5 : err >= 1.5 ? 2 : 1) * mag;
+  const lo = Math.floor(min/step)*step, hi = Math.ceil(max/step)*step; const ticks = [];
+  for (let v = lo; v <= hi + step/2; v += step) ticks.push(Math.round(v/step)*step);
+  return ticks;
+}
+function sortedSnaps(){ return state.snapshots.slice().sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0); }
+function historyPoints(){
+  const v = view();
+  const pts = sortedSnaps().map(s => ({date:s.date, label:fiDate(s.date), net:s[v].net, assets:s[v].assets, debts:s[v].debts, now:false}));
+  if (state.items.length){
+    const T = computeTotals(state.items, v);
+    const today = isoToday();
+    if (!pts.length || pts[pts.length-1].date !== today || Math.abs(pts[pts.length-1].net - T.net) > 0.5)
+      pts.push({date: (pts.length && pts[pts.length-1].date >= today) ? pts[pts.length-1].date : today, label:'Nyt ('+fiDate(today)+')', net:T.net, assets:T.assets, debts:T.debts, now:true});
+  }
+  return pts;
+}
+function drawLine(el, height){
+  const pts = historyPoints();
+  if (pts.length < 2){
+    el.innerHTML = `<div class="chart-empty"><div><b style="color:var(--ink)">Kehityskäyrä näkyy, kun tilannekuvia on tallennettu.</b><br>Tallenna tilannekuva esimerkiksi kuukausittain tai vuosittain – käyrä vertaa niitä nykytilanteeseen.</div></div>`;
+    return;
+  }
+  const W = Math.max(320, el.clientWidth || 700), H = height, m = {l:64, r:18, t:14, b:30};
+  // Varat vihreä, velat punainen (katkoviiva toisena tunnisteena), nettovarallisuus tumma.
+  const series = [{k:'assets', name:'Varat', color:'#1F8A52'}, {k:'debts', name:'Velat', color:'#C93C3C', dash:true}, {k:'net', name:'Nettovarallisuus', color:'#24302B', main:true}];
+  const all = pts.flatMap(p => [p.net, p.assets, p.debts]);
+  const ticks = niceTicks(Math.min(0, ...all), Math.max(...all), 4);
+  const y0 = ticks[0], y1 = ticks[ticks.length-1];
+  const t0 = new Date(pts[0].date).getTime(), t1 = new Date(pts[pts.length-1].date).getTime();
+  const sameDay = t1 === t0;
+  const X = (p, i) => sameDay ? m.l + (i/(pts.length-1))*(W-m.l-m.r) : m.l + ((new Date(p.date).getTime()-t0)/(t1-t0))*(W-m.l-m.r);
+  const Y = v => m.t + (1 - (v - y0)/(y1 - y0))*(H-m.t-m.b);
+  let svg = `<svg viewBox="0 0 ${W} ${H}" height="${H}" role="img" aria-label="Varallisuuden kehitys ajan kuluessa">`;
+  ticks.forEach(t => { svg += `<line x1="${m.l}" x2="${W-m.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="${t===0?'#C9C4B9':'#EEEBE5'}" stroke-width="1"/><text x="${m.l-10}" y="${Y(t)+4}" text-anchor="end" font-size="11" fill="#7B8089" style="font-variant-numeric:tabular-nums">${compactEur(t)}</text>`; });
+  const maxLabels = Math.max(2, Math.floor((W-m.l-m.r)/90)); const every = Math.ceil(pts.length / maxLabels);
+  pts.forEach((p,i) => { if (i % every === 0 || i === pts.length-1){ svg += `<text x="${X(p,i)}" y="${H-8}" text-anchor="${i===0?'start':i===pts.length-1?'end':'middle'}" font-size="11" fill="#7B8089">${p.now?'Nyt':fiDate(p.date).slice(0,10)}</text>`; } });
+  series.forEach(s => {
+    const saved = pts.filter(p => !p.now), d = pts.map((p,i) => (i?'L':'M') + X(p,i).toFixed(1) + ' ' + Y(p[s.k]).toFixed(1)).join(' ');
+    svg += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${s.main?2.5:2}" stroke-linejoin="round" stroke-linecap="round" ${s.dash?'stroke-dasharray="6 5"':''}/>`;
+    pts.forEach((p,i) => { svg += `<circle cx="${X(p,i)}" cy="${Y(p[s.k])}" r="${s.main?4.5:3.5}" fill="${p.now?'#fff':s.color}" stroke="${p.now?s.color:'#fff'}" stroke-width="2"/>`; });
+  });
+  svg += `<line class="xh" x1="0" x2="0" y1="${m.t}" y2="${H-m.b}" stroke="#7B8089" stroke-dasharray="3 3" opacity="0"/>`;
+  svg += `<rect x="${m.l}" y="0" width="${W-m.l-m.r}" height="${H}" fill="transparent" class="hit"/></svg>`;
+  el.className = 'chart';
+  el.innerHTML = svg + `<div class="tooltip"></div><div class="chart-legend">${series.slice().reverse().map(s => `<span><i style="${s.dash?`background:repeating-linear-gradient(90deg,${s.color} 0 5px,transparent 5px 8px)`:`background:${s.color}`};height:${s.main?3:2}px"></i>${s.name}</span>`).join('')}<span class="muted"><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="#fff" stroke="#24302B" stroke-width="2"/></svg>Nykytilanne (ei tallennettu)</span></div>`;
+  const svgEl = el.querySelector('svg'), tt = el.querySelector('.tooltip'), xh = el.querySelector('.xh');
+  el.querySelector('.hit').addEventListener('mousemove', e => {
+    const rc = svgEl.getBoundingClientRect(); const sx = (e.clientX - rc.left) * (W / rc.width);
+    let bi = 0, bd = Infinity; pts.forEach((p,i) => { const d = Math.abs(X(p,i)-sx); if (d < bd){bd=d;bi=i;} });
+    const p = pts[bi], px = X(p,bi);
+    xh.setAttribute('x1',px); xh.setAttribute('x2',px); xh.setAttribute('opacity','1');
+    tt.innerHTML = `<div style="font-weight:700;margin-bottom:3px">${p.now ? p.label : fiDate(p.date)}</div>` + series.slice().reverse().map(s => `<div class="tt-row"><span><span class="sw" style="background:${s.color}"></span>${s.name}</span><b>${eur(p[s.k])}</b></div>`).join('');
+    tt.style.opacity = 1; const left = px * (rc.width / W);
+    tt.style.left = (left > rc.width - 220 ? left - 210 : left + 14) + 'px'; tt.style.top = '8px';
+  });
+  el.querySelector('.hit').addEventListener('mouseleave', () => { tt.style.opacity = 0; xh.setAttribute('opacity','0'); });
+}
+
+/* ---------- Varat ja velat: suoraan täytettävät rivit ---------- */
+const assetId = (cat, sub) => 'a|' + cat + '|' + sub;
+const debtId = type => 'd|' + type;
+function rowItem(id){
+  let it = state.items.find(x => x.id === id);
+  if (it) return it;
+  const p = id.split('|');
+  if (p[0] === 'a') return {id, kind:'asset', cat:p[1], sub:p[2], name:p[2], value:'', owner:'oma', ownShareTxt:'100', spouseShareTxt:'100', forestMode:'total', notes:'', _virtual:true};
+  return {id, kind:'debt', type:p[1], name:debtOf(p[1]).name, value:'', owner:'oma', ownShareTxt:'100', spouseShareTxt:'100', notes:'', _virtual:true};
+}
+function ensureItem(id){
+  let it = state.items.find(x => x.id === id);
+  if (!it){ it = rowItem(id); delete it._virtual; state.items.push(it); }
+  return it;
+}
+function shareInputs(it){
+  const po = it.cat === 'metsa' ? ' data-pctonly placeholder="esim. 33,33"' : '';
+  return `<div class="ef f-own"><label>Oma osuus</label><div class="input-suffix"><input class="input" data-f="ownShareTxt" value="${esc(it.ownShareTxt)}" inputmode="decimal"${po || ' placeholder="100"'} aria-label="Oma osuus"><span>%</span></div></div>
+    <div class="ef f-sp"><label>Puolison osuus</label><div class="input-suffix"><input class="input" data-f="spouseShareTxt" value="${esc(it.spouseShareTxt)}" inputmode="decimal"${po || ' placeholder="100"'} aria-label="Puolison osuus"><span>%</span></div></div>`;
+}
+function ownerSelect(it, debt){
+  return `<div class="ef f-owner"><label>${debt?'Vastuu':'Omistaja'}</label><select class="input" data-f="owner">${['oma','yhteinen'].map(o => `<option value="${o}" ${it.owner===o?'selected':''}>${({oma:'Oma',puoliso:'Puolison',yhteinen:'Yhteinen'})[o]}</option>`).join('')}</select></div>`;
+}
+const moneyInput = (it, f, label, ph='0') => `<div class="ef f-${f}"><label>${label}</label><div class="input-suffix"><input class="input" data-f="${f}" data-money value="${fmtInputNum(it[f])}" inputmode="decimal" placeholder="${ph}" aria-label="${esc(label)}"><span>€</span></div></div>`;
+function assetRowHtml(cat, sub){
+  const it = rowItem(assetId(cat.key, sub));
+  const forest = cat.key === 'metsa' && sub === 'Metsätilat';
+  let fields = '';
+  if (forest){
+    fields += `<div class="ef f-mode"><label>Arvo syötetään</label><select class="input" data-f="forestMode"><option value="total" ${it.forestMode!=='split'?'selected':''}>Kokonaisarvona</option><option value="split" ${it.forestMode==='split'?'selected':''}>Maapohja + puusto</option></select></div>`;
+    fields += moneyInput(it,'value','Kokonaisarvo').replace('class="ef f-value"','class="ef f-value f-total"');
+    fields += moneyInput(it,'land','Maapohja').replace('class="ef f-land"','class="ef f-land f-split"');
+    fields += moneyInput(it,'timber','Puusto').replace('class="ef f-timber"','class="ef f-timber f-split"');
+  } else fields += moneyInput(it,'value', cat.key==='pankki' ? 'Saldo' : 'Markkina-arvo');
+  if (canHaveLoan(cat.key)) fields += moneyInput(it,'loanPrincipal','Jäljellä oleva laina');
+  fields += ownerSelect(it, false) + shareInputs(it);
+  return rowShell(it, sub, fields);
+}
+function debtRowHtml(d){
+  const it = rowItem(debtId(d.key));
+  const fields = moneyInput(it,'value','Jäljellä oleva pääoma') + ownerSelect(it, true) + shareInputs(it);
+  return rowShell(it, d.name, fields);
+}
+function rowShell(it, title, fields){
+  const open = openBd.has(it.id);
+  return `<div class="erow" data-id="${esc(it.id)}" data-owner="${it.owner}" data-fmode="${it.forestMode==='split'?'split':'total'}">
+    <div class="erow-main">
+      <div class="erow-title"><b>${esc(title)}</b><span class="erow-out" data-out="row"></span></div>
+      <div class="erow-fields">${fields}</div>
+      <button class="icon-btn erow-tg" data-action="toggle-row" aria-expanded="${open}" aria-label="Näytä laskenta ja lisätiedot" title="Laskenta ja lisätiedot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+    <div class="erow-detail ${open?'open':''}">
+      <div data-out="bd"></div>
+      <div class="erow-notes"><label class="small" style="font-weight:600">Lisätiedot</label><textarea class="input" data-f="notes" rows="2" maxlength="500" placeholder="Vapaaehtoinen, esim. pankki, kohteen osoite tai arvion peruste">${esc(it.notes)}</textarea>
+      <button class="btn sm danger" data-action="clear-row">Tyhjennä rivi</button></div>
+    </div>
+  </div>`;
+}
+function breakdownHtml(it, c){
+  const L = (a,b,cls='') => `<div class="bd-line ${cls}"><span>${a}</span><span>${b}</span></div>`;
+  let h = '';
+  if (it.kind === 'asset'){
+    if (it.cat === 'metsa' && it.forestMode === 'split'){
+      h += L('Maapohjan arvo', eurX(parseNum(it.land)||0)); h += L('+ Puuston arvo', eurX(parseNum(it.timber)||0));
+      h += L('= Kokonaisarvo (kokonaisarvon kenttää ei käytetä)', eurX(c.gross));
+    } else h += L(it.cat==='pankki' ? 'Saldo (100 %)' : 'Markkina-arvo (100 %)', eurX(c.gross));
+    if (c.s.own > 0) h += L(`× oma osuus ${shareLabel(c.s.own, it.ownShareTxt)}`, eurX(c.own));
+    if (c.s.spouse > 0) h += L(`× puolison osuus ${shareLabel(c.s.spouse, it.spouseShareTxt)}`, eurX(c.spouse));
+    const outside = 1 - c.s.own - c.s.spouse;
+    if (outside > 1e-9) h += L(`Kotitalouden ulkopuolisten osuus ${nfPct2.format(outside)}`, '<span class="muted">ei lasketa</span>');
+    if (c.loan){
+      h += L(`Laina, jäljellä ${eurX(c.loan.principal)}`, '');
+      if (c.s.own > 0) h += L(`− oma vastuu ${nfPct2.format(c.s.own)}`, eurX(c.loan.own));
+      if (c.s.spouse > 0) h += L(`− puolison vastuu ${nfPct2.format(c.s.spouse)}`, eurX(c.loan.spouse));
+      h += L('Nettoarvo sinulle', eurX(c.own - c.loan.own), 'total');
+      h += L('Nettoarvo kotitaloudelle', eurX(c.hh - c.loan.hh));
+      h += `<div class="small muted" style="margin-top:6px">Lainan vastuuosuus on sama kuin omistusosuus. Laina lasketaan Velat-puolella (${debtOf(c.loan.type).name}) – sitä ei vähennetä varoista toista kertaa. Jos vastuuosuus poikkeaa omistusosuudesta, jätä tämä kenttä tyhjäksi ja syötä laina Velat-välilehdelle.</div>`;
+    } else { h += L('Arvo sinulle', eurX(c.own), 'total'); h += L('Arvo kotitaloudelle', eurX(c.hh)); }
+  } else {
+    h += L('Jäljellä oleva velkapääoma (100 %)', eurX(c.gross));
+    if (c.s.own > 0) h += L(`× oma vastuuosuus ${shareLabel(c.s.own, it.ownShareTxt)}`, eurX(c.own));
+    if (c.s.spouse > 0) h += L(`× puolison vastuuosuus ${shareLabel(c.s.spouse, it.spouseShareTxt)}`, eurX(c.spouse));
+    h += L('Velka sinulle', eurX(c.own), 'total'); h += L('Velka kotitaloudelle', eurX(c.hh));
+  }
+  return h;
+}
+function renderAssets(){
+  const el = document.getElementById('v-varat');
+  el.innerHTML = `
+    <div class="page-title"><div><h2>Varat</h2><p>Täytä suoraan ne rivit, jotka koskevat sinua – tyhjät rivit eivät vaikuta laskelmaan. Syötä aina <b>koko kohteen arvo</b>; omistusosuuden mukainen arvo lasketaan automaattisesti.</p></div>
+    <div style="text-align:right"><div class="muted small">Varat yhteensä · <span data-out="viewlbl"></span></div><div style="font-size:24px;font-weight:800" class="num" data-out="assets-total"></div></div></div>
+    <div class="cat-list">${ASSET_CATS.map(cat => `<div class="card cat-card" data-cat="${cat.key}" style="--tint:${cat.tint}">
+        <div class="cat-head">
+          <div class="cat-ico" style="background:${cat.tint}">${icon(cat.key, '#15171B')}</div>
+          <div class="t"><h3>${cat.name}</h3><button class="linkish" data-action="toggle-help" data-key="${cat.key}" aria-expanded="${openHelp.has(cat.key)}">${openHelp.has(cat.key)?'Piilota ohje':'Näytä ohje'}</button></div>
+          <div class="cat-total num" data-out="cat-${cat.key}"></div>
+        </div>
+        <div class="help ${openHelp.has(cat.key)?'open':''}">${cat.help}</div>
+        <div class="erows">${cat.subs.map(s => assetRowHtml(cat, s)).join('')}</div>
+      </div>`).join('')}</div>`;
+  refreshOutputs();
+}
+function renderDebts(){
+  const el = document.getElementById('v-velat');
+  el.innerHTML = `
+    <div class="page-title"><div><h2>Velat</h2><p>Syötä jokaisesta velasta <b>jäljellä oleva velkapääoma</b> – ei alkuperäistä lainasummaa. Yhteisen lainan voi jakaa vastuuosuuksiin. Tyhjät rivit eivät vaikuta laskelmaan.</p></div>
+    <div style="text-align:right"><div class="muted small">Velat yhteensä · <span data-out="viewlbl"></span></div><div style="font-size:24px;font-weight:800" class="num" data-out="debts-total"></div></div></div>
+    <div data-out="linked"></div>
+    <div class="card cat-card" style="--tint:var(--red-soft)">
+      <div class="cat-head"><div class="cat-ico" style="background:var(--red-soft)">${icon('velka','#15171B')}</div>
+        <div class="t"><h3>Lainat ja muut velat</h3><button class="linkish" data-action="toggle-help" data-key="debts" aria-expanded="${openHelp.has('debts')}">${openHelp.has('debts')?'Piilota ohjeet':'Näytä ohjeet'}</button></div>
+        <div class="cat-total num" data-out="debts-rows"></div></div>
+      <div class="help ${openHelp.has('debts')?'open':''}"><div class="help-grid">${DEBT_TYPES.map(d => `<div><h4>${d.name}</h4><p>${d.help}</p></div>`).join('')}</div></div>
+      <div class="erows">${DEBT_TYPES.map(d => debtRowHtml(d)).join('')}</div>
+    </div>`;
+  refreshOutputs();
+}
+// Päivittää lasketut luvut syöttökenttiin koskematta (fokus säilyy kirjoitettaessa).
+function refreshOutputs(){
+  const v = view(), T = computeTotals(state.items, v);
+  const set = (sel, html) => document.querySelectorAll(sel).forEach(e => e.innerHTML = html);
+  set('[data-out="viewlbl"]', viewLabel().toLowerCase());
+  set('[data-out="assets-total"]', eur(T.assets));
+  set('[data-out="debts-total"]', eur(T.debts));
+  ASSET_CATS.forEach(c => set(`[data-out="cat-${c.key}"]`, eur(T.byCat[c.key])));
+  const ownDebts = T.debtRows.filter(r => !r.linked).reduce((s,r) => s + r.v, 0);
+  set('[data-out="debts-rows"]', eur(ownDebts));
+  document.querySelectorAll('.erow').forEach(row => {
+    const it = rowItem(row.dataset.id), c = computeItem(it);
+    const out = row.querySelector('[data-out="row"]'), bd = row.querySelector('[data-out="bd"]');
+    row.classList.toggle('filled', c.gross > 0 || !!c.loan);
+    row.querySelectorAll('[data-f=ownShareTxt],[data-f=spouseShareTxt]').forEach(i => i.classList.toggle('err', !c.s.valid));
+    if (!c.s.valid){ out.innerHTML = `<span class="neg">Tarkista osuudet: ${it.cat==='metsa' ? 'prosentti 0–100' : '0–100 % tai murto-osa'}, yhteensä enintään 100 %</span>`; }
+    else if (c.gross > 0 || c.loan){
+      const mine = pick(c, v) - (c.loan ? pick(c.loan, v) : 0);
+      out.innerHTML = v === 'kotitalous'
+        ? `kotitaloudelle <b>${eur(pick(c,v))}</b>${c.loan ? ` · laina ${eur(pick(c.loan,v))} · netto <b>${eur(mine)}</b>` : ''}`
+        : `sinulle <b>${eur(pick(c,v))}</b>${c.loan ? ` · laina ${eur(pick(c.loan,v))} · netto <b>${eur(mine)}</b>` : ''}`;
+    } else out.innerHTML = '';
+    if (row.querySelector('.erow-detail').classList.contains('open'))
+      bd.innerHTML = (c.gross > 0 || c.loan) ? breakdownHtml(it, c) : '<div class="small muted">Syötä arvo, niin näet tässä miten se muodostuu.</div>';
+  });
+  const linked = document.querySelector('[data-out="linked"]');
+  if (linked){
+    const rows = T.debtRows.filter(r => r.linked);
+    linked.innerHTML = rows.length ? `<div class="card" style="margin-bottom:14px"><div class="card-head" style="margin-bottom:8px"><div style="flex:1"><h2>Asuntoihin liitetyt lainat</h2><p>Syötetty Varat-välilehdellä kohteen yhteydessä – älä syötä niitä alle uudelleen</p></div><a class="btn sm" href="#varat">Muokkaa varoissa</a></div>
+      ${rows.map(r => `<div class="bd-line" style="padding:7px 0;border-bottom:1px solid var(--line)"><span>${debtOf(r.type).name.replace(/t$/,'')}: ${esc(r.it.sub)} <span class="muted small">(koko laina ${eur(r.c.principal)})</span></span><span class="num"><b>${eur(r.v)}</b></span></div>`).join('')}</div>` : '';
+  }
+}
+function onRowInput(e){
+  const f = e.target.dataset.f; if (!f) return;
+  const row = e.target.closest('.erow'); if (!row) return;
+  const it = ensureItem(row.dataset.id);
+  // Metsäomaisuudessa osuus vain prosentteina: sallitaan numerot ja desimaalierotin.
+  if (e.target.hasAttribute('data-pctonly')){ const clean = e.target.value.replace(/[^\d,.]/g,''); if (clean !== e.target.value) e.target.value = clean; }
+  // Prosenttiosuudet enintään kahdella desimaalilla.
+  if (f === 'ownShareTxt' || f === 'spouseShareTxt'){ const m = e.target.value.match(/^(\s*\d*[.,]\d{2})\d+/); if (m) e.target.value = e.target.value.slice(0, m[1].length) + e.target.value.slice(m[0].length); }
+  if (e.target.hasAttribute('data-money')){ const s = e.target.value.trim(); it[f] = s === '' ? '' : parseNum(s); }
+  else it[f] = e.target.value;
+  if (f === 'owner'){
+    const o = it.owner, own = row.querySelector('[data-f=ownShareTxt]'), sp = row.querySelector('[data-f=spouseShareTxt]');
+    if (o === 'yhteinen'){ if (own.value === '100' || own.value === '') own.value = '50'; if (sp.value === '100' || sp.value === '') sp.value = '50'; }
+    else if (o === 'oma'){ if (own.value === '' || own.value === '50') own.value = '100'; }
+    else { if (sp.value === '' || sp.value === '50') sp.value = '100'; }
+    it.ownShareTxt = own.value; it.spouseShareTxt = sp.value; row.dataset.owner = o;
+  }
+  if (f === 'forestMode') row.dataset.fmode = it.forestMode;
+  schedulePersist(); refreshOutputs();
+}
+let persistT; function schedulePersist(){ clearTimeout(persistT); persistT = setTimeout(persist, 250); }
+
+/* ---------- Kehitys ---------- */
+function snapshotData(){
+  const mk = v => { const T = computeTotals(state.items, v); return {assets:T.assets, debts:T.debts, net:T.net, byCat:T.byCat, byDebt:T.byDebt}; };
+  return {oma:mk('oma'), kotitalous:mk('kotitalous')};
+}
+function renderHistory(){
+  const el = document.getElementById('v-kehitys');
+  const snaps = sortedSnaps(); const v = view();
+  if (compareA && !snaps.find(s => s.id === compareA)) compareA = null;
+  if (!compareA && snaps.length) compareA = snaps[snaps.length-1].id;
+  el.innerHTML = `
+    <div class="page-title"><div><h2>Varallisuuden kehitys</h2><p>Tallenna tilannekuva tietystä päivämäärästä – esimerkiksi kuukauden tai vuoden lopussa – ja vertaa sitä aiempiin tilanteisiin.</p></div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <label class="small muted" for="interval">Muistutus</label>
+        <select class="input" id="interval" style="width:auto;padding:8px 10px" data-action="set-interval">
+          <option value="kuukausi" ${state.settings.interval==='kuukausi'?'selected':''}>Kuukausittain</option>
+          <option value="vuosi" ${state.settings.interval==='vuosi'?'selected':''}>Vuosittain</option>
+        </select>
+        <button class="btn primary" data-action="snapshot">Tallenna tilannekuva</button>
+      </div></div>
+    <div class="card"><div class="card-head"><div><h2>Kehitys ajan kuluessa</h2><p>${viewLabel()}</p></div></div><div id="hist-line"></div></div>
+    <div class="card" style="margin-top:18px">
+      <div class="card-head"><div><h2>Tallennetut tilannekuvat</h2><p>${snaps.length} kpl · muutos edelliseen tilannekuvaan</p></div></div>
+      ${snaps.length ? `<div class="tbl-wrap"><table class="data"><thead><tr><th>Päivämäärä</th><th class="r">Varat</th><th class="r">Velat</th><th class="r">Nettovarallisuus</th><th class="r">Muutos</th><th>Muistiinpano</th><th></th></tr></thead><tbody>
+        ${snaps.map((s,i) => { const p = i ? snaps[i-1][v].net : null; const d = p==null ? null : s[v].net - p;
+          return `<tr><td>${fiDate(s.date)}</td><td class="r">${eur(s[v].assets)}</td><td class="r">${eur(s[v].debts)}</td><td class="r"><b>${eur(s[v].net)}</b></td><td class="r">${d==null?'–':`<span class="chg ${toneSign(d)}">${(d>0?'+':'')+eur(d)}</span>`}</td><td>${esc(s.note||'')}</td><td class="r"><button class="icon-btn del" data-action="del-snap" data-id="${s.id}" aria-label="Poista tilannekuva"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></button></td></tr>`; }).join('')}
+      </tbody></table></div>` : `<div class="chart-empty" style="min-height:120px">Ei vielä tilannekuvia.</div>`}
+    </div>
+    ${snaps.length ? compareHtml(snaps, v) : ''}`;
+  drawLine(document.getElementById('hist-line'), 300);
+}
+function compareHtml(snaps, v){
+  const A = snaps.find(s => s.id === compareA);
+  const B = compareB === 'now' ? Object.assign({date:isoToday(), now:true}, snapshotData()) : snaps.find(s => s.id === compareB) || Object.assign({date:isoToday(), now:true}, snapshotData());
+  const opt = (sel, includeNow) => (includeNow?`<option value="now" ${sel==='now'?'selected':''}>Nykytilanne</option>`:'') + snaps.map(s => `<option value="${s.id}" ${s.id===sel?'selected':''}>${fiDate(s.date)}${s.note?' – '+esc(s.note):''}</option>`).join('');
+  const a = A[v], b = B[v];
+  const row = (name, x, y, bold, toneDebt) => { const d = y - x; return `<tr${bold?' style="font-weight:800"':''}><td>${name}</td><td class="r">${eur(x)}</td><td class="r">${eur(y)}</td><td class="r"><span class="chg ${toneDebt ? toneSign(-d) : toneSign(d)}">${(d>0.5?'+':'')+eur(d)}</span></td><td class="r muted">${x!==0?pct(d/Math.abs(x)):'–'}</td></tr>`; };
+  return `<div class="card" style="margin-top:18px">
+    <div class="card-head"><div style="flex:1"><h2>Vertaa tilanteita</h2><p>Muutos omaisuusluokittain (${viewLabel().toLowerCase()})</p></div></div>
+    <div class="row2" style="margin-bottom:12px">
+      <div class="field"><label for="cmpA">Lähtötilanne</label><select class="input" id="cmpA" data-action="cmp-a">${opt(compareA,false)}</select></div>
+      <div class="field"><label for="cmpB">Verrattava tilanne</label><select class="input" id="cmpB" data-action="cmp-b">${opt(compareB,true)}</select></div>
+    </div>
+    <div class="tbl-wrap"><table class="data"><thead><tr><th>Luokka</th><th class="r">${fiDate(A.date)}</th><th class="r">${B.now?'Nyt':fiDate(B.date)}</th><th class="r">Muutos €</th><th class="r">Muutos %</th></tr></thead><tbody>
+      ${ASSET_CATS.map(c => row(c.name, a.byCat[c.key]||0, b.byCat[c.key]||0)).join('')}
+      ${row('Varat yhteensä', a.assets, b.assets, true)}
+      ${row('Velat yhteensä', a.debts, b.debts, true, true)}
+      ${row('Nettovarallisuus', a.net, b.net, true)}
+    </tbody></table></div></div>`;
+}
+
+/* ---------- Ohjeet ---------- */
+function runSelfTest(){
+  const items = testItems(); const out = [];
+  ['oma','kotitalous'].forEach(v => { const T = computeTotals(items, v), E = TEST_EXPECT[v];
+    ['assets','debts','net'].forEach(k => out.push({label:`${v==='oma'?'Oma':'Kotitalous'}: ${({assets:'varat',debts:'velat',net:'nettovarallisuus'})[k]}`, exp:E[k], got:T[k], ok:Math.round(T[k]) === E[k]})); });
+  return out;
+}
+function renderHelp(){
+  const el = document.getElementById('v-ohjeet');
+  const tests = runSelfTest(); const allOk = tests.every(t => t.ok);
+  el.innerHTML = `
+    <div class="page-title"><div><h2>Ohjeet ja tiedot</h2><p>Näin laskuri toimii, miten omistusosuudet huomioidaan ja miten hallitset tietojasi.</p></div></div>
+    ${privacyBox()}
+    <div class="grid g-2" style="margin-top:18px">
+      <div class="card prose">
+        <h2 style="margin-bottom:10px">Laskentaperiaatteet</h2>
+        <ul>
+          <li><b>Nettovarallisuus = varat − velat.</b> Varat arvostetaan markkina-arvoon ja velat jäljellä olevaan pääomaan. Alkuperäistä lainasummaa ei käytetä.</li>
+          <li><b>Oma osuus:</b> kunkin kohteen arvo × oma omistusosuus, ja kunkin velan pääoma × oma vastuuosuus.</li>
+          <li><b>Kotitalous:</b> kohteen arvo × (oma osuus + puolison osuus). Yhteinen kohde ja sen laina syötetään vain kerran, joten niitä ei lasketa kahteen kertaan. Kotitalouden ulkopuolisten (esim. sisarusten) osuus jätetään pois.</li>
+          <li><b>Omistusosuuden voi syöttää</b> prosentteina enintään kahdella desimaalilla (50 tai 33,33) tai murto-osana (1/3). Murto-osa lasketaan tarkkana. Metsäomaisuudessa osuus syötetään vain prosentteina.</li>
+          <li><b>Varat ja velat syötetään erikseen:</b> varat Varat-välilehdelle ja kaikki lainat Velat-välilehdelle. Jokainen tieto syötetään vain kerran.</li>
+          <li><b>Metsätilat</b> arvostetaan joko kokonaisarvona tai metsämaa + puusto, ei koskaan molempina.</li>
+          <li>Laskenta tehdään täydellä tarkkuudella, ja summat pyöristetään näytössä täysiin euroihin. Rivin erittelyssä (nuolipainike) näkyvät sentit.</li>
+          <li>Nettovarallisuus ei ole sama asia kuin verotettava varallisuus: laskennallisia luovutusvoittoveroja ei vähennetä.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-head"><div style="flex:1"><h2>Laskennan tarkistus</h2><p>Testiesimerkki lasketaan aina erikseen omista tiedoistasi riippumatta</p></div><span class="ok-tag ${allOk?'ok':'fail'}">${allOk?'✓ Kaikki oikein':'✗ Virhe'}</span></div>
+        <div class="prose"><ul style="margin-bottom:12px">
+          <li>Asunto 400 000 €, omistusosuus 50 % (puoliso 50 %)</li>
+          <li>Asuntolaina 200 000 €, henkilökohtainen vastuu 50 % (puoliso 50 %)</li>
+          <li>Sijoitukset 50 000 €, pankkitalletukset 10 000 €</li>
+          <li>Auto 40 000 €, autolaina 15 000 €</li>
+          <li>Metsäomaisuus 120 000 €, omistusosuus 1/3 (syötetty prosentteina 33,33 %)</li></ul></div>
+        ${tests.map(t => `<div class="test-row"><span>${t.label}</span><span class="num">odotettu ${eur(t.exp)} · tulos <b>${eurX(t.got)}</b> <span class="ok-tag ${t.ok?'ok':'fail'}">${t.ok?'OK':'VIRHE'}</span></span></div>`).join('')}
+        <p class="small muted" style="margin:10px 0 0">Oma: 200 000 + 50 000 + 10 000 + 40 000 + 39 996 = 339 996 € varoja, 100 000 + 15 000 = 115 000 € velkoja. Kotitaloudessa asunto ja laina lasketaan kokonaan (400 000 € / 200 000 €), metsästä vain kotitalouden 33,33 % (120 000 € × 33,33 % = 39 996 €; tarkka 1/3 olisi 40 000 €).</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <div class="card-head"><div><h2>Omaisuusluokat</h2><p>Mitä kuhunkin luokkaan kirjataan</p></div></div>
+      <div class="help-grid">${ASSET_CATS.map(c => `<div><h4><span class="sw" style="background:${c.hex}"></span>${c.name}</h4><p>${c.help}</p></div>`).join('')}</div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <div class="card-head"><div><h2>Velkaluokat</h2><p>Syötä aina jäljellä oleva pääoma</p></div></div>
+      <div class="help-grid">${DEBT_TYPES.map(d => `<div><h4>${d.name}</h4><p>${d.help}</p></div>`).join('')}</div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <div class="card-head"><div><h2>Tietojen hallinta</h2><p>Testidata, varmuuskopiot ja tyhjennys</p></div></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" data-action="load-test">Palauta testidata</button>
+        <button class="btn" data-action="open-export">Vie / varmuuskopioi</button>
+        <button class="btn danger" data-action="clear-all">Tyhjennä kaikki tiedot</button>
+      </div>
+      <p class="small muted" style="margin:12px 0 0">Testidata korvaa nykyiset varat ja velat. Tyhjennys poistaa kaikki erät ja tilannekuvat tästä selaimesta pysyvästi – tallenna varmuuskopio ensin, jos haluat säilyttää tiedot.</p>
+    </div>`;
+}
+
+/* =========================================================
+   LOMAKKEET (modaali)
+   ========================================================= */
+const modalBack = document.getElementById('modal-back'), modalEl = document.getElementById('modal');
+let modalResolve = null;
+function openModal(html, narrow){
+  modalEl.className = 'modal' + (narrow ? ' narrow' : '');
+  modalEl.innerHTML = html; modalBack.classList.add('open'); modalBack.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => { const f = modalEl.querySelector('[autofocus], input:not([type=hidden]):not([type=radio]):not([type=checkbox]), select'); if (f) f.focus(); }, 30);
+}
+function closeModal(){ modalBack.classList.remove('open'); modalBack.setAttribute('aria-hidden','true'); modalEl.innerHTML = ''; document.body.style.overflow = '';
+  if (modalResolve){ const r = modalResolve; modalResolve = null; r(false); } }
+function confirmDialog(title, text, okLabel, danger){
+  return new Promise(res => {
+    openModal(`<div class="modal-h"><h2>${title}</h2></div><div class="modal-b"><p style="margin:0;color:var(--ink-2)">${text}</p></div>
+      <div class="modal-f"><button class="btn" data-action="modal-cancel">Peruuta</button><button class="btn ${danger?'danger':'primary'}" data-action="confirm-ok" autofocus>${okLabel}</button></div>`, true);
+    modalResolve = res;
+  });
+}
+const X_BTN = `<button class="icon-btn" data-action="modal-cancel" aria-label="Sulje"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>`;
+
+/* ---------- Tilannekuva ---------- */
+function openSnapshotForm(){
+  if (!state.items.length){ toast('Lisää ensin varoja tai velkoja'); return; }
+  const T1 = computeTotals(state.items,'oma'), T2 = computeTotals(state.items,'kotitalous');
+  openModal(`<form id="snap-form" novalidate><div class="modal-h"><h2>Tallenna tilannekuva</h2>${X_BTN}</div>
+    <div class="modal-b">
+      <p class="small muted" style="margin:0 0 14px">Tilannekuva tallentaa nykyiset summat valitulle päivämäärälle. Voit tallentaa myös menneelle päivälle (esim. vuoden 31.12. tilanne).</p>
+      <div class="row2"><div class="field"><label for="s-date">Päivämäärä (PP.KK.VVVV)</label><input class="input" id="s-date" name="date" value="${fiDate(isoToday())}" inputmode="numeric" autofocus></div>
+      <div class="field"><label for="s-note">Muistiinpano</label><input class="input" id="s-note" name="note" maxlength="60" placeholder="esim. Vuoden 2026 lopussa"></div></div>
+      <div class="preview"><div class="bd-line"><span>Oma nettovarallisuus</span><span>${eur(T1.net)}</span></div><div class="bd-line"><span>Kotitalouden nettovarallisuus</span><span>${eur(T2.net)}</span></div></div>
+      <div class="err-msg" id="s-err"></div>
+    </div>
+    <div class="modal-f"><button type="button" class="btn" data-action="modal-cancel">Peruuta</button><button type="submit" class="btn primary">Tallenna</button></div></form>`, true);
+  modalEl.querySelector('#snap-form').addEventListener('submit', e => {
+    e.preventDefault(); const f = e.target; const iso = parseFiDate(f.date.value);
+    if (!iso){ f.querySelector('#s-err').textContent = 'Syötä päivämäärä muodossa PP.KK.VVVV, esim. 31.12.2026.'; f.date.classList.add('err'); return; }
+    const existing = state.snapshots.findIndex(s => s.date === iso);
+    const snap = Object.assign({id: existing>=0 ? state.snapshots[existing].id : uid(), date:iso, note:f.note.value.trim(), saved:new Date().toISOString()}, snapshotData());
+    if (existing >= 0) state.snapshots[existing] = snap; else state.snapshots.push(snap);
+    persist(); modalResolve = null; closeModal(); compareA = null; renderAll();
+    toast(existing>=0 ? 'Päivän '+fiDate(iso)+' tilannekuva päivitetty' : 'Tilannekuva tallennettu');
+  });
+}
+
+/* =========================================================
+   VIENTI: CSV, XLSX, PDF, JSON
+   ========================================================= */
+function dlName(ext){ return 'nettovarallisuus_' + fiDate(isoToday()).replace(/\./g,'-') + '.' + ext; }
+// Clauden artefaktinäkymässä lataukset kulkevat downloads-rajapinnan kautta; omalla verkkotunnuksella
+// (esim. nettovarallisuus.fi) käytetään tavallista selaimen latausta.
+const inClaude = () => !!(window.claude && typeof window.claude.use === 'function');
+const canDownload = () => !!downloadsApi || !inClaude();
+const MIME = {csv:'text/csv;charset=utf-8', json:'application/json', pdf:'application/pdf', xlsx:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'};
+async function saveFile(filename, data, label){
+  if (!downloadsApi && !inClaude()){
+    try { const ext = filename.split('.').pop(); const blob = data instanceof Blob ? new Blob([data], {type:MIME[ext]||'application/octet-stream'}) : new Blob([data], {type:MIME[ext]||'text/plain'});
+      const url = URL.createObjectURL(blob), a = document.createElement('a'); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 4000);
+      toast(label + ' ladattu'); return true; } catch(e){ toast('Lataus ei onnistunut'); return false; } }
+  if (!downloadsApi){ toast('Lataukset eivät ole käytettävissä tässä näkymässä'); return false; }
+  try { await downloadsApi.save({filename, data}); toast(label + ' ladattu'); return true; }
+  catch(e){ if (e && e.code === 'declined') toast('Lataus peruttu'); else if (e && e.code === 'rate_limited') toast('Odota hetki ja yritä uudelleen'); else toast('Lataus ei onnistunut'); return false; }
+}
+function exportRows(){
+  const rows = [];
+  for (const it of state.items){
+    const c = computeItem(it);
+    if (it.kind === 'asset'){
+      const cat = catOf(it.cat);
+      rows.push({tyyppi:'Vara', luokka:cat.name, alaluokka:it.sub, nimi:it.name, omistaja:OWNER_LABEL[it.owner], arvo:c.gross, oma:c.s.own, puoliso:c.s.spouse, omaArvo:c.own, kotitalous:c.hh, lisa:it.notes||''});
+      if (c.loan) rows.push({tyyppi:'Velka', luokka:debtOf(c.loan.type).name, alaluokka:'Liitetty kohteeseen', nimi:(it.name||it.sub)+' – laina', omistaja:OWNER_LABEL[it.owner], arvo:c.loan.principal, oma:c.loan.s.own, puoliso:c.loan.s.spouse, omaArvo:c.loan.own, kotitalous:c.loan.hh, lisa:''});
+    } else {
+      rows.push({tyyppi:'Velka', luokka:debtOf(it.type).name, alaluokka:debtOf(it.type).one, nimi:it.name, omistaja:OWNER_LABEL[it.owner], arvo:c.gross, oma:c.s.own, puoliso:c.s.spouse, omaArvo:c.own, kotitalous:c.hh, lisa:it.notes||''});
+    }
+  }
+  return rows;
+}
+function buildCSV(){
+  const n = x => (Math.round(x*100)/100).toFixed(2).replace('.', ',');
+  const p = x => (Math.round(x*10000)/100).toString().replace('.', ',');
+  const q = s => { s = String(s==null?'':s); return /[;"\n\r]/.test(s) ? '"' + s.replace(/"/g,'""') + '"' : s; };
+  const lines = [['Tyyppi','Luokka','Alaluokka','Nimi','Omistaja','Koko arvo / pääoma (€)','Oma osuus (%)','Puolison osuus (%)','Oma arvo (€)','Kotitalouden arvo (€)','Lisätiedot'].join(';')];
+  exportRows().forEach(r => lines.push([r.tyyppi,r.luokka,r.alaluokka,r.nimi,r.omistaja,n(r.arvo),p(r.oma),p(r.puoliso),n(r.omaArvo),n(r.kotitalous),r.lisa].map(q).join(';')));
+  const T1 = computeTotals(state.items,'oma'), T2 = computeTotals(state.items,'kotitalous');
+  lines.push('');
+  lines.push(['Yhteenveto ' + fiDate(isoToday()),'','','','','','','','Oma','Kotitalous',''].join(';'));
+  lines.push(['Varat yhteensä','','','','','','','',n(T1.assets),n(T2.assets),''].join(';'));
+  lines.push(['Velat yhteensä','','','','','','','',n(T1.debts),n(T2.debts),''].join(';'));
+  lines.push(['Nettovarallisuus','','','','','','','',n(T1.net),n(T2.net),''].join(';'));
+  return '﻿' + lines.join('\r\n');
+}
+const libCache = {};
+function loadLib(url, globalName){
+  if (window[globalName]) return Promise.resolve(window[globalName]);
+  if (libCache[url]) return libCache[url];
+  return libCache[url] = new Promise((res, rej) => { const s = document.createElement('script'); s.src = url; s.onload = () => res(window[globalName]); s.onerror = () => { delete libCache[url]; rej(new Error('lataus epäonnistui')); }; document.head.appendChild(s); });
+}
+async function exportXLSX(){
+  if (!canDownload()){ toast('Lataukset eivät ole käytettävissä tässä näkymässä'); return; }
+  toast('Luodaan Excel-tiedostoa…');
+  let XLSX; try { XLSX = await loadLib('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js', 'XLSX'); } catch(e){ toast('Excel-kirjaston lataus epäonnistui – kokeile CSV-vientiä'); return; }
+  const wb = XLSX.utils.book_new(); const EUR = '#,##0.00 "€"', PCT = '0.00%';
+  const fmtCols = (ws, cols, z, from) => { const r = XLSX.utils.decode_range(ws['!ref']); for (let R = from; R <= r.e.r; R++) cols.forEach(C => { const cell = ws[XLSX.utils.encode_cell({r:R,c:C})]; if (cell && typeof cell.v === 'number') cell.z = z; }); };
+  const T1 = computeTotals(state.items,'oma'), T2 = computeTotals(state.items,'kotitalous');
+  const sum = [['Nettovarallisuusraportti', fiDate(isoToday())], [], ['', 'Oma osuus', 'Kotitalous'], ['Varat yhteensä', T1.assets, T2.assets], ['Velat yhteensä', T1.debts, T2.debts], ['Nettovarallisuus', T1.net, T2.net], ['Velkojen osuus varoista', isFinite(T1.debtRatio)?T1.debtRatio:'', isFinite(T2.debtRatio)?T2.debtRatio:''], [], ['Varat omaisuusluokittain', 'Oma osuus', 'Kotitalous']];
+  ASSET_CATS.forEach(c => sum.push([c.name, T1.byCat[c.key], T2.byCat[c.key]]));
+  sum.push([], ['Velat lajeittain','Oma osuus','Kotitalous']); DEBT_TYPES.forEach(d => sum.push([d.name, T1.byDebt[d.key], T2.byDebt[d.key]]));
+  const ws1 = XLSX.utils.aoa_to_sheet(sum); fmtCols(ws1,[1,2],EUR,3); [6].forEach(R => [1,2].forEach(C => { const cell = ws1[XLSX.utils.encode_cell({r:R,c:C})]; if (cell && typeof cell.v==='number') cell.z = PCT; }));
+  ws1['!cols'] = [{wch:34},{wch:18},{wch:18}]; XLSX.utils.book_append_sheet(wb, ws1, 'Yhteenveto');
+  const rows = exportRows();
+  const aoa = [['Tyyppi','Luokka','Alaluokka','Nimi','Omistaja','Koko arvo / pääoma','Oma osuus','Puolison osuus','Oma arvo','Kotitalouden arvo','Lisätiedot']].concat(rows.map(r => [r.tyyppi,r.luokka,r.alaluokka,r.nimi,r.omistaja,r.arvo,r.oma,r.puoliso,r.omaArvo,r.kotitalous,r.lisa]));
+  const ws2 = XLSX.utils.aoa_to_sheet(aoa); fmtCols(ws2,[5,8,9],EUR,1); fmtCols(ws2,[6,7],PCT,1);
+  ws2['!cols'] = [{wch:8},{wch:28},{wch:26},{wch:28},{wch:10},{wch:18},{wch:11},{wch:13},{wch:16},{wch:18},{wch:40}]; XLSX.utils.book_append_sheet(wb, ws2, 'Erittely');
+  const snaps = sortedSnaps();
+  const aoa3 = [['Päivämäärä','Muistiinpano','Varat (oma)','Velat (oma)','Netto (oma)','Varat (kotitalous)','Velat (kotitalous)','Netto (kotitalous)']].concat(snaps.map(s => [fiDate(s.date), s.note||'', s.oma.assets, s.oma.debts, s.oma.net, s.kotitalous.assets, s.kotitalous.debts, s.kotitalous.net]));
+  const ws3 = XLSX.utils.aoa_to_sheet(aoa3); fmtCols(ws3,[2,3,4,5,6,7],EUR,1); ws3['!cols'] = [{wch:12},{wch:28}].concat(Array(6).fill({wch:18})); XLSX.utils.book_append_sheet(wb, ws3, 'Tilannekuvat');
+  const buf = XLSX.write(wb, {bookType:'xlsx', type:'array'});
+  await saveFile(dlName('xlsx'), new Blob([buf]), 'Excel-tiedosto');
+}
+const RP_TONE = {good:['#DDF3E5','#BDE5CC','#1D5A3B'], neutral:['#FFF2C6','#F6DE8D','#5C4500'], bad:['#FDE2E2','#F5B5B5','#8E1F1F']};
+function rpSum(T){
+  const nt = toneSign(T.net), dt = toneDebtRatio(T.debtRatio, T.debts), box = (t, label, val) => `<div style="background:${RP_TONE[t][0]};border-color:${RP_TONE[t][1]}"><span style="color:${RP_TONE[t][2]}">${label}</span><b>${val}</b></div>`;
+  return `<div class="sumbox">${box('good','Varat',eur(T.assets))}${box('bad','Velat',eur(T.debts))}${box(nt,'Nettovarallisuus · '+(T.net>0.5?'positiivinen':T.net<-0.5?'negatiivinen':'nolla'),eur(T.net))}</div>
+    <div style="display:inline-block;padding:5px 10px;border-radius:8px;background:${RP_TONE[dt][0]};color:${RP_TONE[dt][2]};font-weight:600">${TONE_ICON[dt]} Velkojen osuus varoista ${pct(T.debtRatio)} · omavaraisuusaste ${pct(T.equityRatio)} – ${TONE_LABEL[dt].toLowerCase()}</div>`;
+}
+function reportSections(){
+  const T1 = computeTotals(state.items,'oma'), T2 = computeTotals(state.items,'kotitalous');
+  const secs = [];
+  secs.push(`<div class="rp"><div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1E3B2F;padding-bottom:12px"><div><h1>Nettovarallisuusraportti</h1><div style="color:#7B8089">Henkilökohtainen varallisuuslaskelma</div></div><div style="text-align:right;color:#4A4F58">Päivämäärä<br><b style="color:#15171B;font-size:14px">${fiDate(isoToday())}</b></div></div>
+    <h2 style="margin-top:18px">Oma osuus</h2>${rpSum(T1)}
+    <h2 style="margin-top:18px">Kotitalous</h2>${rpSum(T2)}</div>`);
+  const maxCat = Math.max(1, ...ASSET_CATS.map(c => T2.byCat[c.key]));
+  secs.push(`<div class="rp" style="padding-top:8px"><h2>Varat omaisuusluokittain</h2><table><thead><tr><th>Luokka</th><th></th><th class="r">Oma osuus</th><th class="r">Kotitalous</th><th class="r">Osuus (oma)</th></tr></thead><tbody>
+    ${ASSET_CATS.map(c => `<tr><td><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${c.hex};margin-right:7px"></span>${c.name}</td><td style="width:140px"><div style="height:7px;border-radius:4px;background:#EEEBE5"><div style="height:7px;border-radius:4px;background:${c.hex};width:${(T2.byCat[c.key]/maxCat*100).toFixed(1)}%"></div></div></td><td class="r">${eur(T1.byCat[c.key])}</td><td class="r">${eur(T2.byCat[c.key])}</td><td class="r">${T1.assets>0?pct(T1.byCat[c.key]/T1.assets):'–'}</td></tr>`).join('')}
+    <tr style="font-weight:800"><td>Varat yhteensä</td><td></td><td class="r">${eur(T1.assets)}</td><td class="r">${eur(T2.assets)}</td><td></td></tr></tbody></table>
+    <h2 style="margin-top:18px">Velat lajeittain</h2><table><thead><tr><th>Velkatyyppi</th><th class="r">Oma vastuu</th><th class="r">Kotitalous</th></tr></thead><tbody>
+    ${DEBT_TYPES.filter(d => T2.byDebt[d.key] > 0.005).map(d => `<tr><td>${d.name}</td><td class="r">${eur(T1.byDebt[d.key])}</td><td class="r">${eur(T2.byDebt[d.key])}</td></tr>`).join('') || '<tr><td colspan="3">Ei velkoja</td></tr>'}
+    <tr style="font-weight:800"><td>Velat yhteensä</td><td class="r">${eur(T1.debts)}</td><td class="r">${eur(T2.debts)}</td></tr></tbody></table></div>`);
+  const rows = exportRows();
+  for (let i = 0; i < rows.length; i += 18){
+    const chunk = rows.slice(i, i+18);
+    secs.push(`<div class="rp" style="padding-top:8px">${i===0?'<h2>Erittely</h2>':''}<table><thead><tr><th>Erä</th><th>Omistaja</th><th class="r">Koko arvo</th><th class="r">Oma osuus</th><th class="r">Oma arvo</th><th class="r">Kotitalous</th></tr></thead><tbody>
+      ${chunk.map(r => `<tr><td><b>${esc(r.nimi||r.alaluokka)}</b><div style="color:#7B8089;font-size:10.5px">${r.tyyppi} · ${esc(r.luokka)}${r.alaluokka?' · '+esc(r.alaluokka):''}</div></td><td>${r.omistaja}</td><td class="r">${eur(r.arvo)}</td><td class="r">${nfPct2.format(r.oma)}</td><td class="r">${r.tyyppi==='Velka'?'−':''}${eur(r.omaArvo)}</td><td class="r">${r.tyyppi==='Velka'?'−':''}${eur(r.kotitalous)}</td></tr>`).join('')}
+    </tbody></table></div>`);
+  }
+  const snaps = sortedSnaps();
+  if (snaps.length) secs.push(`<div class="rp" style="padding-top:8px"><h2>Tilannekuvat</h2><table><thead><tr><th>Päivämäärä</th><th class="r">Netto (oma)</th><th class="r">Netto (kotitalous)</th><th>Muistiinpano</th></tr></thead><tbody>${snaps.slice(-15).map(s => `<tr><td>${fiDate(s.date)}</td><td class="r">${eur(s.oma.net)}</td><td class="r">${eur(s.kotitalous.net)}</td><td>${esc(s.note||'')}</td></tr>`).join('')}</tbody></table></div>`);
+  secs.push(`<div class="rp" style="padding-top:8px;color:#7B8089;font-size:10.5px;line-height:1.5">Nettovarallisuus = varat (markkina-arvo × omistusosuus) − velat (jäljellä oleva pääoma × vastuuosuus). Kotitalouden luvuissa yhteinen omaisuus ja velka on laskettu vain kerran. Laskennallisia luovutusvoittoveroja ei ole vähennetty. Raportti on luotu käyttäjän omalla laitteella; tietoja ei ole lähetetty mihinkään. Raportti on suuntaa-antava, eikä se ole vero- tai sijoitusneuvontaa.</div>`);
+  return secs;
+}
+async function exportPDF(){
+  if (!canDownload()){ toast('Lataukset eivät ole käytettävissä tässä näkymässä'); return; }
+  if (!state.items.length){ toast('Lisää ensin varoja tai velkoja'); return; }
+  toast('Luodaan PDF-raporttia…');
+  let h2c, jsp;
+  try { h2c = await loadLib('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js','html2canvas');
+        jsp = await loadLib('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js','jspdf'); }
+  catch(e){ toast('PDF-kirjaston lataus epäonnistui'); return; }
+  const root = document.getElementById('report-root');
+  const pdf = new jsp.jsPDF({unit:'mm', format:'a4', orientation:'portrait'});
+  const pageW = 210, pageH = 297, top = 8, bottom = 12; let y = top; let page = 1;
+  try {
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    for (const html of reportSections()){
+      root.innerHTML = html; const node = root.firstElementChild;
+      const canvas = await h2c(node, {scale:2, backgroundColor:'#ffffff', logging:false});
+      const hmm = canvas.height * pageW / canvas.width;
+      if (y + hmm > pageH - bottom && y > top){ pdf.addPage(); page++; y = top; }
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, y, pageW, hmm); y += hmm;
+    }
+    const n = pdf.getNumberOfPages();
+    for (let i = 1; i <= n; i++){ pdf.setPage(i); pdf.setFontSize(8); pdf.setTextColor(140); pdf.text('Nettovarallisuusraportti ' + fiDate(isoToday()) + '   ' + i + ' / ' + n, pageW/2, pageH - 6, {align:'center'}); }
+    root.innerHTML = '';
+    await saveFile(dlName('pdf'), pdf.output('blob'), 'PDF-raportti');
+  } catch(e){ root.innerHTML = ''; toast('PDF:n luonti epäonnistui'); }
+}
+function backupJSON(){ return JSON.stringify({app:'nettovarallisuuslaskuri', exported:new Date().toISOString(), data:state}, null, 2); }
+function openExport(){
+  const has = canDownload();
+  openModal(`<div class="modal-h"><h2>Vie tiedot ja raportit</h2>${X_BTN}</div><div class="modal-b">
+    ${has ? '' : `<div class="notice warn"><div class="grow">Tiedostojen lataus ei ole käytettävissä tässä näkymässä. Voit kopioida CSV-tiedot tai varmuuskopion leikepöydälle ja liittää ne esim. Exceliin tai tekstitiedostoon.</div></div>`}
+    <div class="export-grid">
+      ${has ? `<button class="export-opt" data-action="export-pdf"><span class="ext" style="background:#FBEAE7;color:#8E2B1E">PDF</span><span><b>Nettovarallisuusraportti</b><small>Tulostettava A4-raportti: yhteenveto, luokat, erittely ja tilannekuvat</small></span></button>
+      <button class="export-opt" data-action="export-xlsx"><span class="ext" style="background:#E6F4EE;color:#17603F">XLSX</span><span><b>Excel-työkirja</b><small>Yhteenveto, erittely ja tilannekuvat omilla välilehdillään</small></span></button>
+      <button class="export-opt" data-action="export-csv"><span class="ext" style="background:#E6EFFA;color:#1C4F8C">CSV</span><span><b>CSV-tiedosto</b><small>Puolipiste-eroteltu, suomalainen desimaalipilkku – avautuu suoraan Excelissä</small></span></button>` : ''}
+      <button class="export-opt" data-action="copy-csv"><span class="ext" style="background:#EFEDE7;color:#4A4F58">⧉</span><span><b>Kopioi taulukko leikepöydälle</b><small>Sarkaineroteltu – liitä suoraan Exceliin tai Google Sheetsiin</small></span></button>
+      ${has ? `<button class="export-opt" data-action="backup"><span class="ext" style="background:#FFF1E2;color:#8A4A12">JSON</span><span><b>Varmuuskopio</b><small>Kaikki tiedot ja tilannekuvat tiedostoon – palautettavissa toisella laitteella</small></span></button>` : `<button class="export-opt" data-action="copy-backup"><span class="ext" style="background:#FFF1E2;color:#8A4A12">JSON</span><span><b>Kopioi varmuuskopio</b><small>Tallenna teksti itsellesi; palautus liittämällä</small></span></button>`}
+      <label class="export-opt" style="cursor:pointer"><span class="ext" style="background:#EFEDE7;color:#4A4F58">↥</span><span><b>Palauta varmuuskopiosta</b><small>Valitse aiemmin tallennettu .json-tiedosto</small></span><input type="file" accept=".json,application/json" data-action="restore" class="sr"></label>
+    </div></div><div class="modal-f"><button class="btn" data-action="modal-cancel">Sulje</button></div>`);
+}
+function tsvText(){
+  const n = x => (Math.round(x*100)/100).toString().replace('.', ',');
+  const lines = [['Tyyppi','Luokka','Alaluokka','Nimi','Omistaja','Koko arvo (€)','Oma osuus (%)','Puolison osuus (%)','Oma arvo (€)','Kotitalouden arvo (€)'].join('\t')];
+  exportRows().forEach(r => lines.push([r.tyyppi,r.luokka,r.alaluokka,r.nimi,r.omistaja,n(r.arvo),n(r.oma*100),n(r.puoliso*100),n(r.omaArvo),n(r.kotitalous)].map(s => String(s).replace(/[\t\n]/g,' ')).join('\t')));
+  return lines.join('\n');
+}
+async function copyText(t, label){ try { await navigator.clipboard.writeText(t); toast(label + ' kopioitu leikepöydälle'); } catch(e){ toast('Kopiointi ei onnistunut tässä selaimessa'); } }
+function restoreFrom(file){
+  const r = new FileReader();
+  r.onload = async () => {
+    try { const obj = JSON.parse(r.result); const d = obj && obj.data ? obj.data : obj;
+      if (!d || !Array.isArray(d.items) || !Array.isArray(d.snapshots)) throw new Error('muoto');
+      const ok = await confirmDialog('Palautetaanko varmuuskopio?', `Varmuuskopiossa on ${d.items.length} erää ja ${d.snapshots.length} tilannekuvaa. Nykyiset tiedot korvataan.`, 'Palauta', false);
+      if (!ok) return;
+      state = migrate(Object.assign(defaultState(), {v:1}, d, {settings:Object.assign(defaultState().settings, d.settings||{})}));
+      persist(); closeModal(); renderAll(); toast('Varmuuskopio palautettu');
+    } catch(e){ toast('Tiedosto ei ole kelvollinen varmuuskopio'); }
+  };
+  r.readAsText(file);
+}
+
+/* =========================================================
+   TAPAHTUMAT
+   ========================================================= */
+let toastTimer;
+function toast(msg){ const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2600); }
+
+document.addEventListener('click', async e => {
+  const el = e.target.closest('[data-action]'); if (!el) return;
+  const a = el.dataset.action;
+  if (el.tagName === 'SELECT' || el.type === 'file') return;
+  switch (a){
+    case 'set-view': state.settings.view = el.dataset.view; persist(); renderAll(); break;
+    case 'toggle-help': { const k = el.dataset.key; openHelp.has(k) ? openHelp.delete(k) : openHelp.add(k); renderAll(); break; }
+    case 'toggle-row': { const row = el.closest('.erow'), k = row.dataset.id; if (openBd.has(k)) openBd.delete(k); else openBd.add(k);
+      row.querySelector('.erow-detail').classList.toggle('open', openBd.has(k)); el.setAttribute('aria-expanded', String(openBd.has(k))); refreshOutputs(); break; }
+    case 'clear-row': { const row = el.closest('.erow'); state.items = state.items.filter(x => x.id !== row.dataset.id);
+      openBd.delete(row.dataset.id); persist(); renderAll(); toast('Rivi tyhjennetty'); break; }
+    case 'snapshot': openSnapshotForm(); break;
+    case 'del-snap': { const s = state.snapshots.find(x => x.id === el.dataset.id); if (!s) break;
+      const ok = await confirmDialog('Poistetaanko tilannekuva?', `Tilannekuva ${fiDate(s.date)} poistetaan pysyvästi.`, 'Poista', true);
+      if (ok){ state.snapshots = state.snapshots.filter(x => x.id !== s.id); if (compareB === s.id) compareB = 'now'; persist(); renderAll(); } break; }
+    case 'load-test': {
+      if (state.items.length){ const ok = await confirmDialog('Ladataanko testidata?', 'Testidata korvaa nykyiset varat ja velat. Tilannekuvat säilyvät.', 'Lataa testidata', false); if (!ok) break; }
+      state.items = testItems(); persist(); renderAll(); toast('Testidata ladattu'); break; }
+    case 'clear-all': { const ok = await confirmDialog('Tyhjennetäänkö kaikki tiedot?', 'Kaikki omaisuuserät, velat ja tilannekuvat poistetaan tästä selaimesta pysyvästi.', 'Tyhjennä kaikki', true);
+      if (ok){ state = defaultState(); try{ localStorage.removeItem(LS_KEY); }catch(_){} persist(); openBd.clear(); currentTab='yleiskatsaus'; location.hash = 'yleiskatsaus'; renderAll(); toast('Kaikki tiedot poistettu'); } break; }
+    case 'open-export': openExport(); break;
+    case 'export-csv': await saveFile(dlName('csv'), buildCSV(), 'CSV-tiedosto'); break;
+    case 'export-xlsx': await exportXLSX(); break;
+    case 'export-pdf': await exportPDF(); break;
+    case 'backup': await saveFile(dlName('json'), backupJSON(), 'Varmuuskopio'); break;
+    case 'copy-csv': await copyText(tsvText(), 'Taulukko'); break;
+    case 'copy-backup': await copyText(backupJSON(), 'Varmuuskopio'); break;
+    case 'modal-cancel': closeModal(); break;
+    case 'confirm-ok': { const r = modalResolve; modalResolve = null; closeModal(); if (r) r(true); break; }
+  }
+});
+document.addEventListener('change', e => {
+  const a = e.target.dataset.action;
+  if (a === 'set-interval'){ state.settings.interval = e.target.value; persist(); renderAll(); }
+  if (a === 'cmp-a'){ compareA = e.target.value; renderAll(); }
+  if (a === 'cmp-b'){ compareB = e.target.value; renderAll(); }
+  if (a === 'restore' && e.target.files[0]) restoreFrom(e.target.files[0]);
+});
+document.addEventListener('input', e => { if (e.target.closest('.erow')) onRowInput(e); });
+document.addEventListener('focusout', e => { const t = e.target; if (t.matches && t.matches('.erow [data-money]')){ const n = parseNum(t.value); if (isFinite(n)) t.value = fmtInputNum(n); } });
+modalBack.addEventListener('mousedown', e => { if (e.target === modalBack) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && modalBack.classList.contains('open')) closeModal(); });
+
+function route(){
+  const h = (location.hash || '').replace('#','');
+  currentTab = TABS.includes(h) ? h : 'yleiskatsaus';
+  renderAll(); window.scrollTo(0,0);
+}
+window.addEventListener('hashchange', route);
+let rzT; window.addEventListener('resize', () => { clearTimeout(rzT); rzT = setTimeout(() => { if (currentTab==='yleiskatsaus'||currentTab==='kehitys') renderAll(); }, 150); });
+
+route();
+try { document.getElementById('copy-year').textContent = new Date().getFullYear(); } catch(e){}
+
+// Lataukset (PDF, Excel, CSV) – saatavilla, kun sivu avataan Clauden artefaktina.
+(async () => {
+  try { if (window.claude && typeof window.claude.use === 'function'){ downloadsApi = await window.claude.use('downloads'); } } catch(e){ downloadsApi = null; }
+})();
+</script>
+</body>
+</html>
